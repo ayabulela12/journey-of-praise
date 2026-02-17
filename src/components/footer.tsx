@@ -36,11 +36,11 @@ export function Footer() {
           >
             <Link href="/" className="inline-block">
               <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/logo-journy-1765981545433.png?width=8000&height=8000&resize=contain"
+                src="/JOP_Logo_Icon.png"
                 alt="Journey of Praise"
                 width={140}
                 height={70}
-                className="object-contain brightness-0 invert"
+                className="object-contain"
               />
             </Link>
             <p className="text-slate-300 leading-relaxed">

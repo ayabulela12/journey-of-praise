@@ -29,6 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/JOP_Logo_Icon.png" sizes="any" type="image/png" />
+        <link rel="apple-touch-icon" href="/JOP_Logo_Icon.png" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navigation />
         <main className="min-h-screen pt-20 bg-background">

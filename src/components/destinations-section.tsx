@@ -11,32 +11,32 @@ export function DestinationsSection() {
       name: "Luxury Spa & Wellness",
       description:
         "Rejuvenate your body and soul in our world-class spa facilities. Experience divine relaxation with premium treatments and serene ocean views.",
-      highlights: ["Thalassotherapy Pool", "Massage Therapy", "Sauna & Steam", "Beauty Salon"],
-      image: "/images/JOP_SpaArea.jpg",
+      highlights: ["Jacuzzi & Pool", "Massage Therapy", "Sauna & Steam", "Beauty Salon"],
+      image: "/images/JOP_PremiumAmenities.webp",
       icon: Heart,
     },
     {
-      name: "Gourmet Dining Experience",
+      name: "Dining Experience",
       description:
         "Savor exquisite cuisine in our elegant restaurants. From international buffets to fine dining, every meal is a celebration of taste and fellowship.",
-      highlights: ["24-Hour Room Service", "Specialty Restaurants", "Wine Bar", "Themed Dinners"],
-      image: "/images/JOP_FoodBar.jpg",
+      highlights: ["20-Hour Room Service", "Specialty Restaurants", "Wine Bar", "Themed Dinners"],
+      image: "/images/JOP_VitaminBar.webp",
       icon: Utensils,
     },
     {
       name: "Premium Entertainment",
       description:
         "Be inspired by world-class gospel performances and entertainment. Our main theatre hosts uplifting shows that touch the heart and spirit.",
-      highlights: ["Gospel Concerts", "Live Theatre", "Youth Programs", "Worship Sessions"],
-      image: "/images/JOP_Praise$Worship.jpg",
+      highlights: ["Gospel Concerts", "Word Sessions", "Youth Programs", "Worship Sessions"],
+      image: "/images/JOP_PraiseWorship.webp",
       icon: Music,
     },
     {
       name: "Ocean View Suites",
       description:
         "Retreat to your private sanctuary at sea. Our elegantly appointed cabins offer comfort, style, and breathtaking ocean views for perfect rest.",
-      highlights: ["Balcony Cabins", "Ocean Views", "Premium Amenities", "24/7 Service"],
-      image: "/images/JOP_SpaArea.jpg",
+      highlights: ["Balcony Cabins", "Ocean Views", "Premium Amenities", "20-hour Service"],
+      image: "/images/JOP_OceanView.webp",
       icon: Ship,
     },
   ]
