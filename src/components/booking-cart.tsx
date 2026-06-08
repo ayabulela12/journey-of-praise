@@ -8,96 +8,60 @@ import { Check, Bed, Users, Wifi, Coffee, Tv, Ship, ArrowRight } from "lucide-re
 
 const cabinTypes = [
   {
-    name: "Fantastica – Interior Cabin",
-    price: "R21 209",
-    pricePerNight: "From",
-    description: "Comfortable and value-driven for families",
+    name: "Interior cabin",
+    price: "R17 802",
+    pricePerNight: "Per cabin, 2 adults",
+    description: "Comfortable retreat space for couples",
     icon: Bed,
     features: [
-      "Twin beds (convertible to queen)",
+      "Twin beds convertible to queen",
       "Private bathroom",
       "Climate control",
-      "TV with entertainment",
-      "Safe",
-      "All Journey of Praise programmes",
-      "Insurance & port charges",
-      "Complimentary dining & daily fine dining",
-      "Fitness facilities, pools & hot tubs",
-      "Worded worship sessions & teen entertainment",
-      "Selected sporting activities",
-      "Room service"
+      "Onboard dining & entertainment",
+      "Insurance, port charges & Journey of Praise service fee",
+      "Access to worship sessions and couple-focused moments",
+      "Shipboard pools, fitness and relaxation spaces"
     ],
-    capacity: "2-4 guests",
+    capacity: "2 adults",
     size: "approx. 13-20 sq m",
     badge: null
   },
   {
-    name: "Fantastica – Premium Ocean View",
-    price: "R23 673",
-    pricePerNight: "From",
-    description: "Wake up to beauty of sea",
+    name: "Ocean View",
+    price: "R18 400",
+    pricePerNight: "Per cabin, 2 adults",
+    description: "Wake up to ocean views on your couples retreat",
     icon: Ship,
     features: [
-      "All Interior Cabin amenities",
-      "Window with sea view",
+      "All Interior cabin amenities",
+      "Scenic ocean-view window",
       "Sitting area",
       "Mini refrigerator",
-      "All Journey of Praise programmes",
-      "Insurance & port charges",
-      "Complimentary dining & daily fine dining",
-      "Fitness facilities, pools & hot tubs",
-      "Worded worship sessions & teen entertainment",
-      "Selected sporting activities",
-      "Room service"
+      "Insurance, port charges & Journey of Praise service fee",
+      "Complimentary dining and daily specialty options",
+      "Curated couple experiences and wellness access"
     ],
-    capacity: "2-4 guests",
+    capacity: "2 adults",
     size: "approx. 12-20 sq m",
     badge: "Popular"
   },
   {
-    name: "Fantastica – Junior Balcony",
-    price: "R30 736",
-    pricePerNight: "Decks 9–10",
-    description: "A private outdoor space for reflection and rest",
+    name: "Balcony cabin",
+    price: "R24 600",
+    pricePerNight: "Per cabin, 2 adults",
+    description: "Private balcony for sunset moments together",
     icon: Coffee,
     features: [
       "Private balcony",
-      "All Fantastica amenities",
-      "✔ VIP gospel show access",
-      "All Journey of Praise programmes",
-      "Insurance & port charges",
-      "Complimentary dining & daily fine dining",
-      "Fitness facilities, pools & hot tubs",
-      "Worded worship sessions & teen entertainment",
-      "Selected sporting activities",
-      "Room service"
+      "All Ocean View amenities",
+      "VIP couple experiences",
+      "Insurance, port charges & Journey of Praise service fee",
+      "Complimentary dining and daily specialty options",
+      "Access to wellness, pools and relaxing shore experiences"
     ],
-    capacity: "2-4 guests",
+    capacity: "2 adults",
     size: "approx. 13-17 sq m + balcony",
-    badge: "Most Choice"
-  },
-  {
-    name: "Aurea – Balcony Suite",
-    price: "R33 753",
-    pricePerNight: "Deck 12",
-    description: "Premium comfort with exclusive experiences",
-    icon: Wifi,
-    features: [
-      "Premium balcony cabin",
-      "All Fantastica amenities",
-      "✔ VIP gospel show access",
-      "✔ Backstage access to artists",
-      "All Journey of Praise programmes",
-      "Insurance & port charges",
-      "Complimentary dining & daily fine dining",
-      "Fitness facilities, pools & hot tubs",
-      "Worded worship sessions & teen entertainment",
-      "Selected sporting activities",
-      "Room service"
-    ],
-    capacity: "2-4 guests",
-    size: "approx. 13-17 sq m + balcony",
-    badge: "Premium"
+    badge: "Best for couples"
   }
 ]
 
@@ -111,27 +75,12 @@ interface BookingCartProps {
 export function BookingCart({ selectedPlan, onPlanSelect, onContinue, onGuestsChange }: BookingCartProps) {
   const [guests, setGuests] = useState({
     adults: 2,
-    children: 0,
-    childrenAges: [] as number[]
   })
-
-  const calculateChildPrice = (age: number) => {
-    if (age < 2) return 1000
-    if (age < 5) return 1200
-    if (age < 12) return 1500
-    if (age < 18) return 2000
-    return 0
-  }
-
-  const getTotalChildPrice = () => {
-    return guests.childrenAges.reduce((total, age) => total + calculateChildPrice(age), 0)
-  }
 
   // Update parent component when guests change
   const updateGuests = (newGuests: any) => {
     setGuests(newGuests)
     onGuestsChange(newGuests)
-    // Save to localStorage for payment page
     localStorage.setItem('guests', JSON.stringify(newGuests))
   }
 
@@ -176,83 +125,13 @@ export function BookingCart({ selectedPlan, onPlanSelect, onContinue, onGuestsCh
                 ))}
               </select>
             </div>
-            <div>
-              <label className="block text-sm font-medium mb-2">Children (under 18)</label>
-              <select 
-                value={guests.children}
-                onChange={(e) => {
-                  const newChildrenCount = parseInt(e.target.value)
-                  updateGuests({ 
-                    ...guests, 
-                    children: newChildrenCount,
-                    childrenAges: new Array(newChildrenCount).fill(0)
-                  })
-                }}
-                className="w-full p-2 border border-border rounded-lg"
-              >
-                {[0, 1, 2, 3].map(num => (
-                  <option key={num} value={num}>{num}</option>
-                ))}
-              </select>
-            </div>
           </div>
           
-          {guests.children > 0 && (
-            <div className="space-y-4">
-              <h4 className="font-semibold text-sm">Children's Ages (for pricing)</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {Array.from({ length: guests.children }, (_, index) => (
-                  <div key={index}>
-                    <label className="block text-sm font-medium mb-2">
-                      Child {index + 1} Age
-                    </label>
-                    <select
-                      value={guests.childrenAges[index] || 0}
-                      onChange={(e) => {
-                        const newAges = [...guests.childrenAges]
-                        newAges[index] = parseInt(e.target.value)
-                        updateGuests({ ...guests, childrenAges: newAges })
-                      }}
-                      className="w-full p-2 border border-border rounded-lg"
-                    >
-                      <option value={0}>Select age</option>
-                      {Array.from({ length: 18 }, (_, age) => (
-                        <option key={age + 1} value={age + 1}>
-                          {age + 1} {age + 1 === 1 ? 'year' : 'years'}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      Insurance & taxes: R{calculateChildPrice(guests.childrenAges[index] || 0)}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          <div className="bg-accent/10 rounded-lg p-4">
-            <p className="text-sm text-foreground/80">
-              <strong>Children Pricing:</strong> Kids travel free on cruise fare. 
-              Insurance and port taxes apply based on age: 
-              <span className="block mt-2">
-                • Under 2 years: R1,000<br/>
-                • 2-4 years: R1,200<br/>
-                • 5-11 years: R1,500<br/>
-                • 12-17 years: R2,000
-              </span>
-            </p>
-          </div>
           
           <p className="text-sm text-muted-foreground">
-            Total guests: {guests.adults + guests.children}
-            {guests.children > 0 && (
-              <span className="block mt-1">
-                Additional child costs: R{getTotalChildPrice()}
-              </span>
-            )}
+            Total guests: {guests.adults}
             <span className="block mt-2 text-lg font-bold text-primary">
-              Full Amount: R{parseInt(selectedPlan?.price?.replace(/[^\d]/g, '') || '0') + getTotalChildPrice()}
+              Full Amount: R{parseInt(selectedPlan?.price?.replace(/[^\d]/g, '') || '0')}
             </span>
           </p>
         </CardContent>

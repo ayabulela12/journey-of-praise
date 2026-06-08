@@ -16,11 +16,11 @@ export function PaymentSection() {
               Easy Planning
             </Badge>
             <h2 className="text-5xl md:text-6xl font-['Cinzel'] font-bold text-foreground mb-6">
-              Family-Friendly Payment Plans
+              Couples-Friendly Payment Plans
             </h2>
             <div className="max-w-3xl mx-auto space-y-6">
               <p className="text-xl md:text-2xl text-foreground/75 font-['Cormorant_Garamond'] leading-relaxed">
-                We understand that meaningful holidays are planned, not rushed. That’s why Journey of Praise Cruise offers flexible payment options to make this faith-filled journey accessible for everyone.
+                We understand that meaningful holidays are planned, not rushed. That’s why Journey of Praise Cruise offers flexible payment options to make this faith-filled journey accessible for every couple.
               </p>
             </div>
           </div>
@@ -52,7 +52,7 @@ export function PaymentSection() {
                   Instalments
                 </CardTitle>
                 <p className="text-foreground/70 font-['Cormorant_Garamond'] text-lg">
-                  Pay in manageable monthly instalments that fit your family's budget.
+                  Pay in manageable monthly instalments that fit your couple's budget.
                 </p>
               </CardHeader>
             </Card>
@@ -76,7 +76,7 @@ export function PaymentSection() {
             <CardContent className="p-8 md:p-12">
               <div className="text-center max-w-3xl mx-auto">
                 <h3 className="text-3xl md:text-4xl font-['Cinzel'] font-bold text-foreground mb-6">
-                  Designed for South African Families
+                  Designed for South African Couples
                 </h3>
                 <p className="text-xl text-foreground/75 font-['Cormorant_Garamond'] mb-8 leading-relaxed">
                   Whether you're travelling from <span className="text-primary font-semibold">Gauteng</span>, <span className="text-primary font-semibold">KwaZulu-Natal</span>, the <span className="text-primary font-semibold">Eastern Cape</span>, or the <span className="text-primary font-semibold">Western Cape</span>, our payment plans are designed to help you plan with peace of mind.
@@ -104,7 +104,7 @@ export function PaymentSection() {
                   <ExternalLink className="w-8 h-8 text-primary" />
                 </div>
                 <p className="text-foreground/80 font-['Cormorant_Garamond'] text-lg mb-4">
-                  Download the Journey of Praise 2026 Cruise Terms and Conditions.
+                  Download the Journey of Praise 2027 Cruise Terms and Conditions.
                 </p>
                 <Button variant="outline" className="font-['Cinzel'] border-primary text-primary hover:bg-primary hover:text-white">
                   Download PDF (T&Cs)

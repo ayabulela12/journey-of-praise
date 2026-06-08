@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { Clock } from "lucide-react"
 
-const TARGET_TIMESTAMP = new Date("2026-12-14T14:00:00Z").getTime()
+const TARGET_TIMESTAMP = new Date("2027-03-08T14:00:00Z").getTime()
 
 function calculateTimeLeft() {
   const now = Date.now()

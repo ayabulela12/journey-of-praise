@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/page-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { CreditCard, Building2, ArrowRight, Check, Ship, Calendar, Users } from "lucide-react"
+import { Building2, ArrowRight, Check, Ship, Calendar, Users } from "lucide-react"
 import { BookingSummary } from "@/components/booking-summary"
 
 export default function PaymentPage() {
@@ -140,9 +140,6 @@ export default function PaymentPage() {
                       <p><strong>Email:</strong> {customerDetails.email}</p>
                       <p><strong>Phone:</strong> {customerDetails.phone}</p>
                       <p><strong>Adults:</strong> {customerDetails.adults}</p>
-                      {customerDetails.children > 0 && (
-                        <p><strong>Children:</strong> {customerDetails.children}</p>
-                      )}
                     </div>
                   </div>
                   <div>
@@ -158,7 +155,7 @@ export default function PaymentPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
-                        <span>14-18 Dec 2026</span>
+                        <span>8-12 March 2027</span>
                       </div>
                       {selectedPlan.badge && (
                         <Badge variant="secondary" className="mt-2">
@@ -213,46 +210,6 @@ export default function PaymentPage() {
                   </CardContent>
                 </Card>
 
-                {/* PayFast Option */}
-                <Card className="border-2 border-accent shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group">
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground border-2 border-primary font-['Cinzel'] px-4 py-1">
-                    Popular
-                  </Badge>
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                        <CreditCard className="w-6 h-6 text-accent" />
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
-                    </div>
-                    <CardTitle className="font-['Cinzel'] text-xl">PayFast</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-muted-foreground font-['Cormorant_Garamond']">
-                      Pay securely online using credit card, debit card, or instant EFT through PayFast.
-                    </p>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-secondary" />
-                        <span>Instant payment processing</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-secondary" />
-                        <span>Multiple payment methods</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-secondary" />
-                        <span>Secure and encrypted</span>
-                      </div>
-                    </div>
-                    <Button 
-                      onClick={() => handlePaymentOption('payfast')}
-                      className="w-full font-['Cinzel'] mt-4 bg-accent text-accent-foreground hover:bg-accent/90"
-                    >
-                      Select PayFast Payment
-                    </Button>
-                  </CardContent>
-                </Card>
               </div>
             </div>
           </div>

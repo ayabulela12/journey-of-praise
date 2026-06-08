@@ -33,7 +33,7 @@ export function FinalCTASection() {
           </p>
           
           <p className="text-lg md:text-xl font-['Cormorant_Garamond'] mb-12 text-primary-foreground/80 leading-relaxed max-w-2xl mx-auto">
-            Join families and faith communities from across South Africa on a journey designed to restore, reconnect, and uplift.
+            Join couples and faith communities from across South Africa on a journey designed to restore, reconnect, and uplift.
           </p>
           
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

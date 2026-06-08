@@ -31,7 +31,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-4xl md:text-6xl lg:text-7xl font-['Cinzel_Decorative'] font-bold text-foreground mb-6"
         >
-          Journey of Praise Cruise 2026
+          Journey of Praise Cruise 2027
         </motion.h1>
 
         <motion.p
@@ -49,16 +49,14 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="max-w-3xl mb-12"
         >
-          <p className="text-xl md:text-2xl font-semibold text-foreground/90 mb-4 font-['Cormorant_Garamond']">
-            A Faith-Filled Journey at Sea for Families, Couples & Faith Communities.
-          </p>
           <p className="text-lg md:text-xl text-foreground/80 leading-relaxed font-['Cormorant_Garamond']">
-            This December, step into a different kind of holiday — one designed with purpose. Journey of Praise Cruise is South Africa’s premier faith-based family cruise experience, created for those who desire rest, a reconnection with God and loved ones, and a joyful celebration of faith.
+           Journey of Praise Cruise 2027 invites Christian couples to a faith-filled escape at sea aboard the beautiful MSC Armonia on 8 March 2027.
           </p>
             <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mt-4 font-['Cormorant_Garamond']">
-              Sailing from 14–18 December 2026 aboard the elegant MSC Armonia, this inaugural Journey of Praise invites you into a sacred space at sea. Where worship, thanksgiving, and togetherness unfold naturally.
+              Created for couples seeking intentional connection, spiritual renewal, and quality time together, this experience blends worship, fellowship, love, and rest in a beautiful atmosphere at sea.
+A journey where faith and love come together.
               <br />
-              <span className="font-bold text-accent">Departure: 16:00 from Durban</span>
+              <span className="font-bold text-accent">Departure: 16:00 from Durban Port</span>
             </p>
         </motion.div>
 

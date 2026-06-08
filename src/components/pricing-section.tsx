@@ -8,96 +8,60 @@ import { Check, Bed, Users, Wifi, Coffee, Tv, Ship } from "lucide-react"
 
 const cabinTypes = [
   {
-    name: "Fantastica – Interior Cabin",
-    price: "R21 209",
-    pricePerNight: "From",
-    description: "Comfortable and value-driven for families",
+    name: "Interior cabin",
+    price: "R17 802",
+    pricePerNight: "Per cabin, 2 adults",
+    description: "Comfortable retreat space for couples",
     icon: Bed,
     features: [
-      "Twin beds (convertible to queen)",
+      "Twin beds convertible to queen",
       "Private bathroom",
       "Climate control",
-      "TV with entertainment",
-      "Safe",
-      "All Journey of Praise programmes",
-      "Insurance & port charges",
-      "Complimentary dining & daily fine dining",
-      "Fitness facilities, pools & hot tubs",
-      "Worded worship sessions & teen entertainment",
-      "Selected sporting activities",
-      "Room service"
+      "Onboard dining & entertainment",
+      "Insurance, port charges & Journey of Praise service fee",
+      "Access to worship sessions and couple-focused moments",
+      "Shipboard pools, fitness and relaxation spaces"
     ],
-    capacity: "2-4 guests",
+    capacity: "2 adults",
     size: "approx. 13-20 sq m",
     badge: null
   },
   {
-    name: "Fantastica – Premium Ocean View",
-    price: "R23 673",
-    pricePerNight: "From",
-    description: "Wake up to the beauty of the sea",
+    name: "Ocean View",
+    price: "R18 400",
+    pricePerNight: "Per cabin, 2 adults",
+    description: "Wake up to ocean views on your couples retreat",
     icon: Ship,
     features: [
-      "All Interior Cabin amenities",
-      "Window with sea view",
+      "All Interior cabin amenities",
+      "Scenic ocean-view window",
       "Sitting area",
       "Mini refrigerator",
-      "All Journey of Praise programmes",
-      "Insurance & port charges",
-      "Complimentary dining & daily fine dining",
-      "Fitness facilities, pools & hot tubs",
-      "Worded worship sessions & teen entertainment",
-      "Selected sporting activities",
-      "Room service"
+      "Insurance, port charges & Journey of Praise service fee",
+      "Complimentary dining and daily specialty options",
+      "Curated couple experiences and wellness access"
     ],
-    capacity: "2-4 guests",
+    capacity: "2 adults",
     size: "approx. 12-20 sq m",
     badge: "Popular"
   },
   {
-    name: "Fantastica – Junior Balcony",
-    price: "R30 736",
-    pricePerNight: "Decks 9–10",
-    description: "A private outdoor space for reflection and rest",
+    name: "Balcony cabin",
+    price: "R24 600",
+    pricePerNight: "Per cabin, 2 adults",
+    description: "Private balcony for sunset moments together",
     icon: Coffee,
     features: [
       "Private balcony",
-      "All Fantastica amenities",
-      "VIP gospel show access",
-      "All Journey of Praise programmes",
-      "Insurance & port charges",
-      "Complimentary dining & daily fine dining",
-      "Fitness facilities, pools & hot tubs",
-      "Worded worship sessions & teen entertainment",
-      "Selected sporting activities",
-      "Room service"
+      "All Ocean View amenities",
+      "VIP couple experiences",
+      "Insurance, port charges & Journey of Praise service fee",
+      "Complimentary dining and daily specialty options",
+      "Access to wellness, pools and relaxing shore experiences"
     ],
-    capacity: "2-4 guests",
+    capacity: "2 adults",
     size: "approx. 13-17 sq m + balcony",
-    badge: "Most Choice"
-  },
-  {
-    name: "Aurea – Balcony Suite",
-    price: "R33 753",
-    pricePerNight: "Deck 12",
-    description: "Premium comfort with exclusive experiences",
-    icon: Wifi,
-    features: [
-      "Premium balcony cabin",
-      "All Fantastica amenities",
-      "VIP gospel show access",
-      "Backstage access to artists",
-      "All Journey of Praise programmes",
-      "Insurance & port charges",
-      "Complimentary dining & daily fine dining",
-      "Fitness facilities, pools & hot tubs",
-      "Worded worship sessions & teen entertainment",
-      "Selected sporting activities",
-      "Room service"
-    ],
-    capacity: "2-4 guests",
-    size: "approx. 13-17 sq m + balcony",
-    badge: "Premium"
+    badge: "Best for couples"
   }
 ]
 
@@ -111,15 +75,15 @@ export function PricingSection() {
           </h2>
           <div className="max-w-3xl mx-auto space-y-6">
             <p className="text-xl md:text-2xl text-foreground/75 font-['Cormorant_Garamond']">
-              Whether you’re travelling as a couple, a family, or part of a group, there’s a cabin designed for your comfort.
+              Designed for a couples retreat, every cabin is priced for two adults and crafted for meaningful rest together.
             </p>
             <p className="text-lg text-primary font-semibold font-['Cinzel']">
-              All prices include cruise fare, insurance, port taxes, and access to Journey of Praise programmes.
+              All prices include port charges, insurance, and the Journey of Praise service fee.
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {cabinTypes.map((cabin, index) => (
             <Card 
               key={index} 
@@ -191,15 +155,12 @@ export function PricingSection() {
 
         <div className="mt-16 text-center max-w-3xl mx-auto space-y-4">
           <p className="text-foreground/60 font-['Cormorant_Garamond'] text-lg">
-            * All prices include cruise fare, insurance, port taxes, and access to Journey of Praise programmes.
+            * All prices are per cabin for two adults and include port charges, insurance, and the Journey of Praise service fee.
           </p>
           <div className="p-6 bg-accent/5 rounded-xl border border-accent/20">
-            <h4 className="text-xl font-['Cinzel'] text-accent mb-2">Children's Pricing</h4>
-            <p className="text-foreground/80 font-['Cormorant_Garamond'] text-lg mb-2">
-              Kids travel free on the cruise fare, however insurance and port taxes charges still apply.
-            </p>
-            <p className="text-foreground/70 font-['Cormorant_Garamond'] text-base">
-              Insurance and port taxes for children range from <strong>R1,000 to R2,000</strong> depending on the age of the child.
+            <h4 className="text-xl font-['Cinzel'] text-accent mb-2">Couples Retreat Pricing</h4>
+            <p className="text-foreground/80 font-['Cormorant_Garamond'] text-lg">
+              Every cabin option is designed for two adults and built around a faith-focused couples retreat experience.
             </p>
           </div>
           <div className="p-6 bg-muted/50 rounded-xl border border-border">

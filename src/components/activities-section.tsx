@@ -16,9 +16,9 @@ export function ActivitiesSection() {
       },
       {
         icon: Heart,
-        title: "Thanksgiving Service",
+        title: "Dedicated Program",
         description:
-          "A dedicated Thanksgiving service, designed for reflection and gratitude.",
+          "A dedicated program for couples to reconnect and grow together in faith.",
         image:
           "/images/JOP_ThanksGivingServices.webp",
       },
@@ -34,7 +34,7 @@ export function ActivitiesSection() {
         icon: Shield,
         title: "Safe & Uplifting",
         description:
-          "A safe, uplifting environment where children travel free (conditions apply).",
+          "A safe, uplifting environment crafted for couples seeking meaningful rest and spiritual renewal.",
         image:
           "/images/JOP_Safe%26Uplifting.webp",
       },
@@ -72,7 +72,7 @@ export function ActivitiesSection() {
                 A Cruise with Meaning
               </p>
               <p className="text-xl md:text-2xl text-foreground/75 font-['Cormorant_Garamond'] leading-relaxed">
-                Journey of Praise Cruise stands apart because it offers something rare: a faith-safe, family-centred, culturally relevant cruise experience created specifically for South Africans.
+                Journey of Praise Cruise stands apart because it offers something rare: a faith-safe, couple-centred, culturally relevant cruise experience created specifically for South Africans.
               </p>
             </div>
           </motion.div>
@@ -102,7 +102,7 @@ export function ActivitiesSection() {
                 <div className="aspect-video">
                   <iframe
                     className="w-full h-full"
-                    src="https://www.youtube.com/embed/0owV5tqMVJA"
+                    src="https://www.youtube.com/embed/XtlQJZEWKCY"
                     title="Journey of Praise Cruise"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

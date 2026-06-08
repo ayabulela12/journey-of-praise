@@ -1,16 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { CheckCircle2, Heart, Users, Shield, Baby } from "lucide-react"
+import { Heart, Users, Shield } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function WhoIsThisForSection() {
   const categories = [
-    {
-      icon: Users,
-      title: "Families",
-      description: "Seeking a safe, faith-aligned December holiday with purpose."
-    },
     {
       icon: Heart,
       title: "Couples",
@@ -22,9 +17,9 @@ export function WhoIsThisForSection() {
       description: "Ministries wanting shared worship experiences at sea."
     },
     {
-      icon: Baby,
-      title: "Parents",
-      description: "Value meaning and safety. Kids travel free (conditions apply)."
+      icon: Users,
+      title: "Faith Leaders",
+      description: "Leaders seeking a transformative retreat for their teams."
     }
   ]
 
@@ -46,7 +41,7 @@ export function WhoIsThisForSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((item, index) => (
             <motion.div
               key={item.title}

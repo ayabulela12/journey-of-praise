@@ -35,7 +35,7 @@ export function HeadlinersSection() {
               </p>
               <div className="mt-8 pt-8 border-t border-accent/20">
                 <p className="text-lg text-foreground/60 font-['Cormorant_Garamond']">
-                  Please check back soon for the official announcement of our 2026 Gospel Headliners.
+                  Please check back soon for the official announcement of our 2027 Gospel Headliners.
                 </p>
               </div>
             </CardContent>

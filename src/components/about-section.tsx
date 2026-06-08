@@ -37,24 +37,24 @@ export function AboutSection() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-['Cinzel'] font-bold text-foreground mb-6">
-              Why Journey of Praise Was Created
+              Why the Journey of Praise Cruise Was Created
             </h2>
             <div className="space-y-6">
               <p className="text-xl md:text-2xl text-foreground/75 max-w-4xl mx-auto leading-relaxed font-['Cormorant_Garamond']">
-                Journey of Praise Cruise was born from a simple but powerful vision: to give South Africans a holiday experience where families are prioritised, and rest is intentional. 
+                This Couples Cruise was created from a vision to give Christian couples intentional time away to reconnect with God, with each other, and with purpose.
               </p>
               <p className="text-xl md:text-2xl text-foreground/75 max-w-4xl mx-auto leading-relaxed font-['Cormorant_Garamond']">
-                The cruise reimagines festive travel by placing worship, gratitude, and family connection at the heart of a premium cruise experience — just before Christmas.
+              In a fast-paced world where relationships are often stretched by responsibility and routine, this experience creates space for rest, worship, love, conversation, and renewal at sea.
               </p>
               <div className="flex flex-col items-center justify-center space-y-2 mt-8">
                 <p className="text-2xl md:text-3xl font-['Cinzel'] font-semibold text-accent italic">
                   This is not a party cruise.
                 </p>
                 <p className="text-2xl md:text-3xl font-['Cinzel'] font-semibold text-accent italic">
-                  It is not a concert at sea.
+                  It is not just a getaway.
                 </p>
                 <p className="text-3xl md:text-4xl font-['Cinzel'] font-bold text-primary mt-2 uppercase tracking-widest">
-                  It is a journey of praise.
+                  This is a journey of faith, love, and intentional connection.
                 </p>
               </div>
             </div>

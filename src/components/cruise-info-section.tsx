@@ -6,8 +6,8 @@ import { Calendar, MapPin, Ship, Anchor, Clock, Info, Users, Music, Heart, Spark
 
 const itinerary = [
   {
-    day: "Monday ",
-    date: "14 December 2026",
+    day: "Monday - Departure Day",
+    date: "8 March 2027",
     port: "Durban",
     arrival: "—",
     departure: "16:00",
@@ -18,67 +18,67 @@ const itinerary = [
     ],
     detailedActivities: [
       "6:00AM - 11:00AM: Slow morning (breakfast)",
-      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment, teens club, bowling, kids' club, 4D cinema, Legoland, shopping, gym)",
+      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment area, bowling, 4D cinema, shopping, gym, and relaxation spaces)",
       "12:00PM - 4:00PM: Lunch",
       "2:00PM - 3:00PM: Word session with guest Pastor (main theatre)",
-      "2:00PM - 3:00PM: Youth Word session with guest Pastor (conference room)",
+      "2:00PM - 3:00PM: Couples Word session with guest Pastor (conference room)",
       "5:30PM - 8:00PM: Dinner",
       "8:00PM - 12:00AM: Worship session Guest Artist (main theatre)"
     ]
   },
   {
-    day: "Tuesday ",
-    date: "15 December 2026",
+    day: "Tuesday - At Sea",
+    date: "9 March 2027",
     port: "At Sea",
     arrival: "—",
     departure: "—",
     activities: [
       "6:00AM - 11:00AM: Slow morning (breakfast)",
-      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment, teens club, bowling, kids' club, 4D cinema, Legoland, shopping, gym)",
+      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment area, bowling, 4D cinema, shopping, gym, and relaxation spaces)",
       "12:00PM - 4:00PM: Lunch",
       "2:00PM - 3:00PM: Word session with guest Pastor (main theatre)",
-      "2:00PM - 3:00PM: Youth Word session with guest Pastor (conference room)",
+      "2:00PM - 3:00PM: Couples Word session with guest Pastor (conference room)",
       "5:30PM - 8:00PM: Dinner",
       "8:00PM - 12:00AM: Worship session Guest Artist (main theatre)"
     ]
   },
   {
     day: "Wednesday - Pomene, Mozambique",
-    date: "16 December 2026",
+    date: "10 March 2027",
     port: "Pomene Island, Mozambique",
     arrival: "08:00",
     departure: "18:00",
     activities: [
       "Optional Island Visit: 8am - 6pm (arranged through MSC Cruises)",
       "6:00AM - 11:00AM: Slow morning (breakfast)",
-      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment, teens club, bowling, kids' club, 4D cinema, Legoland, shopping, gym)",
+      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment area, bowling, 4D cinema, shopping, gym, and relaxation spaces)",
       "12:00PM - 4:00PM: Lunch",
       "2:00PM - 3:00PM: Word session with guest Pastor (main theatre)",
-      "2:00PM - 3:00PM: Youth Word session with guest Pastor (conference room)",
+      "2:00PM - 3:00PM: Couples Word session with guest Pastor (conference room)",
       "5:30PM - 8:00PM: Dinner",
       "8:00PM - 12:00AM: Worship session Guest Artist (main theatre)"
     ]
   },
   {
-    day: "Thursday - Rejoice Theme",
-    date: "17 December 2026",
-    port: "At Sea",
-    arrival: "—",
+    day: "Thursday - Back in SA",
+    date: "11 March 2027",
+    port: "Cape Town, South Africa",
+    arrival: "06:00",
     departure: "—",
     activities: [
       "6:00AM - 11:00AM: Slow morning (breakfast)",
-      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment, teens club, bowling, kids' club, 4D cinema, Legoland, shopping, gym)",
+      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment area, bowling, 4D cinema, shopping, gym, and relaxation spaces)",
       "12:00PM - 4:00PM: Lunch",
       "2:00PM - 3:00PM: Word session with guest Pastor (main theatre)",
-      "2:00PM - 3:00PM: Youth Word session with guest Pastor (conference room)",
+      "2:00PM - 3:00PM: Couples Word session with guest Pastor (conference room)",
       "5:30PM - 8:00PM: Dinner",
       "8:00PM - 1:00AM: Worship session Guest Artist (main theatre)"
     ]
   },
   {
-    day: "Friday - Back in SA",
-    date: "18 December 2026",
-    port: "Durban",
+    day: "Saturday - Back in SA",
+    date: "12 March 2027",
+    port: "Cape Town, South Africa",
     arrival: "06:00",
     departure: "—",
     activities: [
@@ -126,27 +126,23 @@ export function CruiseInfoSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto text-lg font-['Cormorant_Garamond']">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-accent rounded-full" />
-                <span>Complimentary dining (20h daily)</span>
+                <span>Complimentary dining options open up to 20 hours daily</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-accent rounded-full" />
-                <span>Fine dining in selected restaurants</span>
+                <span>Fine dining experiences in selected restaurants</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-accent rounded-full" />
-                <span>Worded worship sessions</span>
+                <span>Theatre shows, live music, social lounges & curated entertainment</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-accent rounded-full" />
-                <span>Wellness: Gym, Pools, Jacuzzis</span>
+                <span>Wellness facilities including gym, pools, jacuzzis & solarium</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-accent rounded-full" />
-                <span>Sports courts & teen zones</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-accent rounded-full" />
-                <span>20-hour room service</span>
+                <span>Sports courts, shopping areas & 24-hour room service</span>
               </div>
             </div>
             <p className="text-lg md:text-xl text-foreground/60 italic font-['Cormorant_Garamond'] mt-4">
@@ -265,7 +261,7 @@ export function CruiseInfoSection() {
                             <div className="flex items-start gap-2">
                               <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
                               <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Family activities
+                                Shared experiences
                               </span>
                             </div>
                             <div className="flex items-start gap-2">
@@ -346,7 +342,7 @@ export function CruiseInfoSection() {
                                   <p className="font-semibold text-foreground font-['Cinzel'] text-sm">13:00PM</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, teens club, bowling alley, kids' club, baby club, 4D cinema, Legoland, shopping, gym & walking track</p>
+                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, bowling alley, 4D cinema, shopping, gym & walking track</p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-3">
@@ -373,7 +369,7 @@ export function CruiseInfoSection() {
                                   <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Youth Word session with guest Pastor (conference room)</p>
+                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Couples Word session with guest Pastor (conference room)</p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-3">
@@ -413,7 +409,7 @@ export function CruiseInfoSection() {
                                   <p className="font-semibold text-foreground font-['Cinzel'] text-sm">13:00PM</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, teens club, bowling alley, kids' club, baby club, 4D cinema, Legoland, shopping, gym & walking track</p>
+                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, bowling alley, 4D cinema, shopping, gym & walking track</p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-3">
@@ -440,7 +436,7 @@ export function CruiseInfoSection() {
                                   <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Youth Word session with guest Pastor (conference room)</p>
+                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Couples Word session with guest Pastor (conference room)</p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-3">
@@ -485,7 +481,7 @@ export function CruiseInfoSection() {
                                   <p className="font-semibold text-foreground font-['Cinzel'] text-sm">13:00PM</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, teens club, bowling alley, kids' club, baby club, 4D cinema, Legoland, shopping, gym & walking track</p>
+                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, bowling alley, 4D cinema, shopping, gym & walking track</p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-3">
@@ -512,7 +508,7 @@ export function CruiseInfoSection() {
                                   <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Youth Word session with guest Pastor (conference room)</p>
+                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Couples Word session with guest Pastor (conference room)</p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-3">
@@ -552,7 +548,7 @@ export function CruiseInfoSection() {
                                   <p className="font-semibold text-foreground font-['Cinzel'] text-sm">13:00PM</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, teens club, bowling alley, kids' club, baby club, 4D cinema, Legoland, shopping, gym & walking track</p>
+                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, bowling alley, 4D cinema, shopping, gym & walking track</p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-3">
@@ -579,7 +575,7 @@ export function CruiseInfoSection() {
                                   <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Youth Word session with guest Pastor (conference room)</p>
+                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Couples Word session with guest Pastor (conference room)</p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-3">

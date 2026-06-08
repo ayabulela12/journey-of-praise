@@ -9,7 +9,6 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Cruise Info", href: "/cruise" },
   { name: "Pricing", href: "/pricing" },
-  { name: "Headliners", href: "/headliners" },
   { name: "Gallery", href: "/gallery" },
 ]
 
@@ -120,7 +119,7 @@ export function Footer() {
             <h3 className="font-['Cormorant_Garamond'] text-2xl font-bold mb-6">Cruise Details</h3>
             <ul className="space-y-3 text-slate-300">
               <li>
-                <strong className="text-white">Dates:</strong> December 14-18, 2025
+                <strong className="text-white">Dates:</strong> March 8-12, 2027
               </li>
               <li>
                 <strong className="text-white">Ship:</strong> MSC Armonia
@@ -151,9 +150,7 @@ export function Footer() {
               <Link href="#" className="hover:text-accent transition-colors">
                 Terms of Service
               </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
-                Cancellation Policy
-              </Link>
+             
             </div>
           </div>
         </div>

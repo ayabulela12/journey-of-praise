@@ -8,24 +8,10 @@ interface BookingSummaryProps {
   selectedPlan: any
   guests?: {
     adults: number
-    children: number
-    childrenAges: number[]
   }
 }
 
 export function BookingSummary({ selectedPlan, guests }: BookingSummaryProps) {
-  const calculateChildPrice = (age: number) => {
-    if (age < 2) return 1000
-    if (age < 5) return 1200
-    if (age < 12) return 1500
-    if (age < 18) return 2000
-    return 0
-  }
-
-  const getTotalChildPrice = () => {
-    if (!guests?.childrenAges) return 0
-    return guests.childrenAges.reduce((total, age) => total + calculateChildPrice(age), 0)
-  }
   if (!selectedPlan) {
     return (
       <Card className="border-2 border-border">
@@ -77,33 +63,16 @@ export function BookingSummary({ selectedPlan, guests }: BookingSummaryProps) {
             {selectedPlan.pricePerNight}
           </div>
           
-          {guests?.children && guests.children > 0 && (
-            <div className="mt-4 p-3 bg-accent/10 rounded-lg">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium">Children's Insurance & Taxes</span>
-                <span className="font-semibold text-accent">R{getTotalChildPrice()}</span>
-              </div>
-              <div className="text-xs text-muted-foreground">
-                {guests.childrenAges.map((age, index) => (
-                  <div key={index} className="flex justify-between">
-                    <span>Child {index + 1} ({age} years):</span>
-                    <span>R{calculateChildPrice(age)}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-          
           <div className="mt-4 pt-4 border-t">
             <div className="flex items-center justify-between">
               <span className="font-semibold">Total Cost</span>
               <span className="font-['Cinzel'] text-2xl text-primary">
-                R{parseInt(selectedPlan.price.replace(/[^\d]/g, '')) + getTotalChildPrice()}
+                R{parseInt(selectedPlan.price.replace(/[^\d]/g, ''))}
               </span>
             </div>
             <div className="mt-2 p-3 bg-primary/10 rounded-lg text-center">
               <div className="text-xl font-bold text-primary">
-                Full Amount: R{parseInt(selectedPlan.price.replace(/[^\d]/g, '')) + getTotalChildPrice()}
+                Full Amount: R{parseInt(selectedPlan.price.replace(/[^\d]/g, ''))}
               </div>
             </div>
           </div>
@@ -147,7 +116,7 @@ export function BookingSummary({ selectedPlan, guests }: BookingSummaryProps) {
           <div className="space-y-2 text-sm">
             <div>
               <span className="text-muted-foreground">Dates:</span>
-              <div className="font-medium">14-18 December 2026</div>
+              <div className="font-medium">8-12 March 2027</div>
             </div>
             <div>
               <span className="text-muted-foreground">Ship:</span>

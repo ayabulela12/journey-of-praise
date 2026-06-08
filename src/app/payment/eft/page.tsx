@@ -8,12 +8,25 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Building2, ArrowLeft, Copy, Check, Ship, Calendar, Users, Mail, Phone } from "lucide-react"
 import { BookingSummary } from "@/components/booking-summary"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog"
 
 export default function EFTPaymentPage() {
   const [customerDetails, setCustomerDetails] = useState<any>(null)
   const [selectedPlan, setSelectedPlan] = useState<any>(null)
   const [guests, setGuests] = useState<any>(null)
+  const [reference, setReference] = useState('')
   const [copied, setCopied] = useState<string | null>(null)
+  const [isEmailDialogOpen, setIsEmailDialogOpen] = useState(false)
+  const [isEmailLoading, setIsEmailLoading] = useState(false)
+  const [emailError, setEmailError] = useState<string | null>(null)
   const router = useRouter()
 
   useEffect(() => {
@@ -47,31 +60,67 @@ export default function EFTPaymentPage() {
     }
   }, [])
 
+  useEffect(() => {
+    if (customerDetails && !reference) {
+      const normalizedName = customerDetails.fullName?.replace(/\s/g, '').toUpperCase().substring(0, 10) || 'GUEST'
+      setReference(`JOP-${normalizedName}-${Date.now().toString().slice(-6)}`)
+    }
+  }, [customerDetails, reference])
+
   const bankDetails = {
     bankName: "Standard Bank",
     accountName: "Journey of Praise Cruise",
     accountNumber: "1234567890",
     branchCode: "051001",
-    reference: `JOP-${customerDetails?.fullName?.replace(/\s/g, '').toUpperCase().substring(0, 10)}-${Date.now().toString().slice(-6)}`
+    reference: reference || `JOP-${customerDetails?.fullName?.replace(/\s/g, '').toUpperCase().substring(0, 10)}-${Date.now().toString().slice(-6)}`
   }
 
-  // Calculate total amount including children's insurance
-  const calculateChildPrice = (age: number) => {
-    if (age < 2) return 1000
-    if (age < 5) return 1200
-    if (age < 12) return 1500
-    if (age < 18) return 2000
-    return 0
-  }
-
-  const getTotalChildPrice = () => {
-    if (!guests?.childrenAges) return 0
-    return guests.childrenAges.reduce((total: number, age: number) => total + calculateChildPrice(age), 0)
-  }
 
   const totalAmount = selectedPlan 
-    ? parseInt(selectedPlan.price.replace(/[^\d]/g, '')) + getTotalChildPrice()
+    ? parseInt(selectedPlan.price.replace(/[^\d]/g, ''))
     : 0
+
+  const handleConfirmBooking = async () => {
+    if (isEmailLoading || !customerDetails || !selectedPlan || !guests || !reference) {
+      return
+    }
+
+    setIsEmailLoading(true)
+    setEmailError(null)
+
+    try {
+      const response = await fetch('/api/booking/confirm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          customerDetails,
+          selectedPlan,
+          guests,
+          reference,
+          totalAmount,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || !result.success) {
+        const message = result.error || 'Failed to send confirmation email'
+        setEmailError(message)
+        throw new Error(message)
+      }
+
+      setIsEmailDialogOpen(true)
+    } catch (error: any) {
+      console.error('Booking confirmation error:', error)
+      if (!emailError) {
+        setEmailError(error?.message || 'Unable to send the confirmation email. Please try again later.')
+      }
+    } finally {
+      setIsEmailLoading(false)
+    }
+  }
 
   const handleCopy = (text: string, field: string) => {
     navigator.clipboard.writeText(text)
@@ -165,7 +214,7 @@ export default function EFTPaymentPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
-                        <span>14-18 Dec 2026</span>
+                        <span>8-12 March 2027</span>
                       </div>
                     </div>
                   </div>
@@ -310,24 +359,61 @@ export default function EFTPaymentPage() {
                   </ul>
                 </div>
 
-                <div className="flex gap-4">
-                  <Button 
-                    variant="outline"
-                    onClick={() => router.push('/payment')}
-                    className="flex-1 font-['Cinzel']"
-                  >
-                    Change Payment Method
-                  </Button>
-                  <Button 
-                    onClick={() => {
-                      // Here you would typically send an email or save the payment details
-                      alert('Payment details have been sent to your email. Please complete the transfer using the details above.')
-                    }}
-                    className="flex-1 font-['Cinzel']"
-                  >
-                    Send Details to Email
-                  </Button>
+                <div className="flex flex-col gap-3">
+                  <div className="flex gap-4">
+                    <Button 
+                      variant="outline"
+                      onClick={() => router.push('/payment')}
+                      className="flex-1 font-['Cinzel']"
+                    >
+                      Change Payment Method
+                    </Button>
+                    <Button 
+                      onClick={handleConfirmBooking}
+                      disabled={isEmailLoading}
+                      className="flex-1 font-['Cinzel']"
+                    >
+                      {isEmailLoading ? 'Sending Email...' : 'Send Details to Email'}
+                    </Button>
+                  </div>
+                  {emailError ? (
+                    <div className="rounded-2xl bg-destructive/10 border border-destructive p-4 text-sm text-destructive">
+                      {emailError}
+                    </div>
+                  ) : null}
                 </div>
+
+                <Dialog open={isEmailDialogOpen} onOpenChange={setIsEmailDialogOpen}>
+                  <DialogContent className="border-2 border-primary">
+                    <DialogHeader>
+                      <DialogTitle className="font-['Cinzel'] text-2xl">
+                        Your Booking is Confirmed – Journey of Praise Cruise
+                      </DialogTitle>
+                      <DialogDescription className="text-foreground/80">
+                        A payment instruction email has been sent to {customerDetails.email || 'your email address'} with your bank transfer details and booking reference.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4 p-4 bg-muted/50 rounded-xl border border-border">
+                      <div className="text-sm text-foreground/90">
+                        <p><strong>To:</strong> {customerDetails.email || 'your email address'}</p>
+                        <p><strong>Cabin:</strong> {selectedPlan.name}</p>
+                        <p><strong>Amount:</strong> R{totalAmount.toLocaleString('en-ZA')}</p>
+                        <p><strong>Reference:</strong> {bankDetails.reference}</p>
+                      </div>
+                      <div className="rounded-2xl bg-background p-4 border border-border shadow-sm">
+                        <p className="font-semibold text-sm text-foreground">Success! Your booking has been confirmed.</p>
+                        <p className="text-sm text-foreground/70 mt-2">
+                          A payment instruction email has been sent with your bank transfer details, reference and next steps.
+                        </p>
+                      </div>
+                    </div>
+                    <DialogFooter>
+                      <DialogClose asChild>
+                        <Button className="font-['Cinzel']">Close</Button>
+                      </DialogClose>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
               </CardContent>
             </Card>
           </div>

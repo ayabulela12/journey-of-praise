@@ -10,8 +10,6 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Cruise Info", href: "/cruise" },
   { name: "Pricing", href: "/pricing" },
-  { name: "Flights", href: "/flights" },
-  { name: "Headliners", href: "/headliners" },
   { name: "Gallery", href: "/gallery" },
   { name: "Book Now", href: "/book-now", cta: true },
 ] as const

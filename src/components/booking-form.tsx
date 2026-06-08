@@ -18,12 +18,11 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
     email: "",
     phone: "",
     adults: 2,
-    children: 0,
     message: ""
   })
   const router = useRouter()
 
-  // Load guests data from localStorage on mount to preserve childrenAges
+  // Load guests data from localStorage on mount
   useEffect(() => {
     const savedGuests = localStorage.getItem('guests')
     if (savedGuests) {
@@ -33,7 +32,6 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
         setFormData(prev => ({
           ...prev,
           adults: guests.adults || prev.adults,
-          children: guests.children || prev.children
         }))
       } catch (e) {
         console.error('Error parsing guests data:', e)
@@ -52,47 +50,27 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
       localStorage.setItem('selectedPlan', JSON.stringify(selectedPlan))
     }
     
-    // Update guests data - preserve childrenAges if they exist, otherwise create empty array
+    // Update guests data and save adults only
     const savedGuests = localStorage.getItem('guests')
     let guests
     if (savedGuests) {
       try {
         guests = JSON.parse(savedGuests)
-        // Ensure childrenAges exists
-        if (!guests.childrenAges) {
-          guests.childrenAges = []
-        }
-        // Update adults and children from form, but preserve childrenAges
         guests.adults = formData.adults
-        guests.children = formData.children
-        // If number of children decreased, trim childrenAges array
-        if (guests.childrenAges.length > formData.children) {
-          guests.childrenAges = guests.childrenAges.slice(0, formData.children)
-        }
-        // If number of children increased, pad with 0s
-        while (guests.childrenAges.length < formData.children) {
-          guests.childrenAges.push(0)
-        }
       } catch (e) {
-        // If parsing fails, create new guests object
         guests = {
           adults: formData.adults,
-          children: formData.children,
-          childrenAges: Array(formData.children).fill(0)
         }
       }
     } else {
-      // If guests data doesn't exist, create it from formData
       guests = {
         adults: formData.adults,
-        children: formData.children,
-        childrenAges: Array(formData.children).fill(0)
       }
     }
     localStorage.setItem('guests', JSON.stringify(guests))
     
-    // Redirect to payment page
-    router.push('/payment')
+    // Redirect directly to the EFT payment page since this is the only payment option
+    router.push('/payment/eft')
   }
 
   return (
@@ -146,7 +124,7 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                <span>14-18 Dec 2026</span>
+                <span>8-12 March 2027</span>
               </div>
             </div>
             <div className="mt-2 text-xl font-['Cinzel'] font-bold">
@@ -215,18 +193,6 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
                   ))}
                 </select>
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium font-['Cinzel']">Number of Children</label>
-                <select 
-                  className="w-full p-3 border rounded-md bg-white"
-                  value={formData.children}
-                  onChange={(e) => setFormData(prev => ({ ...prev, children: parseInt(e.target.value) }))}
-                >
-                  {[0, 1, 2, 3].map(num => (
-                    <option key={num} value={num}>{num} Child{num !== 1 ? 'ren' : ''}</option>
-                  ))}
-                </select>
-              </div>
             </div>
 
             <div className="space-y-2">
@@ -263,7 +229,7 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
                 className="flex-1 py-3 font-['Cinzel']" 
                 type="submit"
               >
-                Proceed to Payment
+                Proceed to Bank Transfer
               </Button>
             </div>
           </form>
