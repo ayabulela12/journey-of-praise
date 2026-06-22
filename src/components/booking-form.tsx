@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Users, Calendar, Ship } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { GuestPicker, clampGuestCount } from "@/components/guest-picker"
 
 interface BookingFormProps {
   selectedPlan: any
@@ -31,7 +32,7 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
         // Update formData with guests info
         setFormData(prev => ({
           ...prev,
-          adults: guests.adults || prev.adults,
+          adults: clampGuestCount(guests.adults || prev.adults),
         }))
       } catch (e) {
         console.error('Error parsing guests data:', e)
@@ -170,40 +171,26 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
               </div>
             </div>
             
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label className="text-sm font-medium font-['Cinzel']">Phone Number *</label>
-                <input 
-                  className="w-full p-3 border rounded-md" 
-                  type="tel" 
-                  placeholder="Enter your phone number" 
-                  required
-                  value={formData.phone}
-                  onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium font-['Cinzel']">Country</label>
-                <input 
-                  className="w-full p-3 border rounded-md" 
-                  placeholder="Enter your country"
-                />
-              </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium font-['Cinzel']">Phone Number *</label>
+              <input 
+                className="w-full p-3 border rounded-md" 
+                type="tel" 
+                placeholder="Enter your phone number" 
+                required
+                value={formData.phone}
+                onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+              />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label className="text-sm font-medium font-['Cinzel']">Number of Adults *</label>
-                <select 
-                  className="w-full p-3 border rounded-md bg-white"
-                  value={formData.adults}
-                  onChange={(e) => setFormData(prev => ({ ...prev, adults: parseInt(e.target.value) }))}
-                >
-                  {[1, 2, 3, 4].map(num => (
-                    <option key={num} value={num}>{num} Adult{num > 1 ? 's' : ''}</option>
-                  ))}
-                </select>
-              </div>
+              <GuestPicker
+                label="Number of Adults *"
+                value={formData.adults}
+                onChange={(adults) =>
+                  setFormData(prev => ({ ...prev, adults: clampGuestCount(adults) }))
+                }
+              />
             </div>
 
             <div className="space-y-2">

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Check, Bed, Users, Wifi, Coffee, Tv, Ship, ArrowRight } from "lucide-react"
+import { GuestPicker, clampGuestCount } from "@/components/guest-picker"
 
 const cabinTypes = [
   {
@@ -78,7 +79,8 @@ export function BookingCart({ selectedPlan, onPlanSelect, onContinue, onGuestsCh
   })
 
   // Update parent component when guests change
-  const updateGuests = (newGuests: any) => {
+  const updateGuests = (adults: number) => {
+    const newGuests = { adults: clampGuestCount(adults) }
     setGuests(newGuests)
     onGuestsChange(newGuests)
     try {
@@ -114,21 +116,10 @@ export function BookingCart({ selectedPlan, onPlanSelect, onContinue, onGuestsCh
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-2">Adults</label>
-              <select 
-                value={guests.adults}
-                onChange={(e) => updateGuests({ 
-                  ...guests, 
-                  adults: parseInt(e.target.value) 
-                })}
-                className="w-full p-2 border border-border rounded-lg"
-              >
-                {[1, 2, 3, 4].map(num => (
-                  <option key={num} value={num}>{num}</option>
-                ))}
-              </select>
-            </div>
+            <GuestPicker
+              value={guests.adults}
+              onChange={updateGuests}
+            />
           </div>
           
           

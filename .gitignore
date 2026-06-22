@@ -3,6 +3,7 @@ node_modules/
 out/
 dist/
 .env
+public/api/booking/config.php
 .DS_Store
 *.mp4
 *.mov

@@ -126,6 +126,14 @@ export default function PaymentPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content Area */}
           <div className="lg:col-span-2 space-y-6">
+            <Button
+              variant="ghost"
+              onClick={() => router.push('/book-now')}
+              className="font-['Cinzel'] -mt-2"
+            >
+              Back to Reserve Your Cabin
+            </Button>
+
             {/* Booking Summary Card */}
             <Card className="border-2 border-border">
               <CardHeader>

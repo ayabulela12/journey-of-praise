@@ -22,10 +22,10 @@ export default function PayFastPaymentPage() {
               PayFast is not available for this booking flow. The EFT payment option is active and ready to use.
             </p>
             <Button
-              onClick={() => router.push('/payment')}
+              onClick={() => router.push('/book-now')}
               className="font-['Cinzel']"
             >
-              Return to Payment Options
+              Back to Reserve Your Cabin
             </Button>
           </CardContent>
         </Card>

@@ -90,7 +90,7 @@ export default function EFTPaymentPage() {
     setEmailError(null)
 
     try {
-      const response = await fetch('/api/booking/confirm', {
+      const response = await fetch('/api/booking/confirm.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -103,6 +103,11 @@ export default function EFTPaymentPage() {
           totalAmount,
         }),
       })
+
+      const contentType = response.headers.get('content-type') ?? ''
+      if (!contentType.includes('application/json')) {
+        throw new Error('Email service is unavailable. Please contact us directly.')
+      }
 
       const result = await response.json()
 
@@ -171,11 +176,11 @@ export default function EFTPaymentPage() {
             {/* Back Button */}
             <Button 
               variant="ghost"
-              onClick={() => router.push('/payment')}
+              onClick={() => router.push('/book-now')}
               className="font-['Cinzel']"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Payment Options
+              Back to Reserve Your Cabin
             </Button>
 
             {/* Booking Summary */}
