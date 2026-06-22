@@ -4,7 +4,7 @@
   "private": true,
   "homepage": ".",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "build:cpanel": "next build",
     "start": "next start",
@@ -47,6 +47,7 @@
     "input-otp": "^1.4.2",
     "lucide-react": "^0.554.0",
     "next": "^16.1.6",
+    "next-sitemap": "^4.2.3",
     "next-themes": "^0.4.6",
     "nodemailer": "^8.0.10",
     "orchids-visual-edits": "^1.0.12",

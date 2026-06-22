@@ -1,91 +1,35 @@
-"use client"
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Ship, Anchor, Clock, Info, Users, Music, Heart, Sparkles } from "lucide-react"
+import { MapPin, Ship, Anchor, Clock, Info } from "lucide-react"
 
 const itinerary = [
   {
     day: "Monday - Departure Day",
     date: "8 March 2027",
-    port: "Durban",
+    port: "Durban, South Africa",
     arrival: "—",
-    departure: "16:00",
-    activities: [
-      "Board the ship",
-      "Settle into your cabin", 
-      "Begin your journey of rest"
-    ],
-    detailedActivities: [
-      "6:00AM - 11:00AM: Slow morning (breakfast)",
-      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment area, bowling, 4D cinema, shopping, gym, and relaxation spaces)",
-      "12:00PM - 4:00PM: Lunch",
-      "2:00PM - 3:00PM: Word session with guest Pastor (main theatre)",
-      "2:00PM - 3:00PM: Couples Word session with guest Pastor (conference room)",
-      "5:30PM - 8:00PM: Dinner",
-      "8:00PM - 12:00AM: Worship session Guest Artist (main theatre)"
-    ]
+    departure: "16:00"
   },
   {
     day: "Tuesday - At Sea",
     date: "9 March 2027",
     port: "At Sea",
     arrival: "—",
-    departure: "—",
-    activities: [
-      "6:00AM - 11:00AM: Slow morning (breakfast)",
-      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment area, bowling, 4D cinema, shopping, gym, and relaxation spaces)",
-      "12:00PM - 4:00PM: Lunch",
-      "2:00PM - 3:00PM: Word session with guest Pastor (main theatre)",
-      "2:00PM - 3:00PM: Couples Word session with guest Pastor (conference room)",
-      "5:30PM - 8:00PM: Dinner",
-      "8:00PM - 12:00AM: Worship session Guest Artist (main theatre)"
-    ]
+    departure: "—"
   },
   {
-    day: "Wednesday - Pomene, Mozambique",
+    day: "Wednesday - At Sea",
     date: "10 March 2027",
-    port: "Pomene Island, Mozambique",
-    arrival: "08:00",
-    departure: "18:00",
-    activities: [
-      "Optional Island Visit: 8am - 6pm (arranged through MSC Cruises)",
-      "6:00AM - 11:00AM: Slow morning (breakfast)",
-      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment area, bowling, 4D cinema, shopping, gym, and relaxation spaces)",
-      "12:00PM - 4:00PM: Lunch",
-      "2:00PM - 3:00PM: Word session with guest Pastor (main theatre)",
-      "2:00PM - 3:00PM: Couples Word session with guest Pastor (conference room)",
-      "5:30PM - 8:00PM: Dinner",
-      "8:00PM - 12:00AM: Worship session Guest Artist (main theatre)"
-    ]
+    port: "At Sea",
+    arrival: "—",
+    departure: "—"
   },
   {
-    day: "Thursday - Back in SA",
+    day: "Thursday - Arrival Day",
     date: "11 March 2027",
     port: "Cape Town, South Africa",
     arrival: "06:00",
-    departure: "—",
-    activities: [
-      "6:00AM - 11:00AM: Slow morning (breakfast)",
-      "11:00AM - 1:00PM: Explore cruise sites (pools, waterpark, spa, entertainment area, bowling, 4D cinema, shopping, gym, and relaxation spaces)",
-      "12:00PM - 4:00PM: Lunch",
-      "2:00PM - 3:00PM: Word session with guest Pastor (main theatre)",
-      "2:00PM - 3:00PM: Couples Word session with guest Pastor (conference room)",
-      "5:30PM - 8:00PM: Dinner",
-      "8:00PM - 1:00AM: Worship session Guest Artist (main theatre)"
-    ]
-  },
-  {
-    day: "Saturday - Back in SA",
-    date: "12 March 2027",
-    port: "Cape Town, South Africa",
-    arrival: "06:00",
-    departure: "—",
-    activities: [
-    
-      "Disembarkation",
-      "Journey home with a renewed spirit"
-    ]
+    departure: "—"
   }
 ]
 
@@ -97,8 +41,8 @@ const shipFeatures = [
   },
   {
     icon: Anchor,
-    title: "Mozambique Journey",
-    description: "Unforgettable 4-night voyage to Pomene Island"
+    title: "South Africa Route",
+    description: "Unforgettable 3-night voyage from Durban to Cape Town"
   },
   {
     icon: Clock,
@@ -121,7 +65,7 @@ export function CruiseInfoSection() {
           </h2>
           <div className="max-w-4xl mx-auto space-y-6">
             <p className="text-xl md:text-2xl text-foreground/75 font-['Cormorant_Garamond'] leading-relaxed">
-              Journey of Praise Cruise combines the warmth of worship with the comfort of a world-class cruise experience. Join us aboard the magnificent MSC Armonia for an unforgettable 4-night Mozambique Island journey of faith, fellowship, and inspiration.
+              Journey of Praise Cruise combines the warmth of worship with the comfort of a world-class cruise experience. Join us aboard the magnificent MSC Armonia for an unforgettable 3-night journey from Durban to Cape Town of faith, fellowship, and inspiration.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto text-lg font-['Cormorant_Garamond']">
               <div className="flex items-center gap-2">
@@ -174,453 +118,40 @@ export function CruiseInfoSection() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-['Cinzel'] font-bold text-foreground mb-4">
-              A December Unlike Any Other
+              A March Journey to Remember
             </h3>
             <p className="text-2xl text-primary font-semibold font-['Cinzel'] mb-2">
-              Durban → Pomene Island → Durban
+              Durban → Cape Town
             </p>
             <p className="text-lg text-foreground/60 font-['Cormorant_Garamond']">
               Every day has been intentionally designed to balance worship, rest, and joyful exploration.
             </p>
           </div>
 
-          <div className="space-y-4">
-            {itinerary.map((day, index) => (
-              <Card 
-                key={index} 
-                className="border-2 border-border hover:border-secondary transition-all duration-300 overflow-hidden"
-              >
-                <div className="flex flex-col md:flex-row">
-                  <div className="bg-gradient-to-br from-primary to-secondary p-6 md:w-64 flex-shrink-0">
-                    <div className="text-accent font-['Cinzel'] font-bold text-2xl mb-2">
-                      {day.day}
-                    </div>
-                    <div className="text-background/90 font-['Cormorant_Garamond'] text-lg mb-4">
-                      {day.date}
-                    </div>
-                    <div className="flex items-start gap-2 mb-4">
-                      <MapPin className="w-5 h-5 text-accent shrink-0 mt-1" />
-                      <div className="text-background font-semibold font-['Cinzel']">
-                        {day.port}
-                      </div>
-                    </div>
-                    <div className="space-y-2 text-sm text-background/80 font-['Cormorant_Garamond']">
-                      {day.arrival !== "—" && (
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4" />
-                          <span>Arrival: {day.arrival}</span>
-                        </div>
-                      )}
-                      {day.departure !== "—" && (
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4" />
-                          <span>Departure: {day.departure}</span>
-                        </div>
-                      )}
-                    </div>
-                    
-                    {/* Today's Highlights in Blue Card */}
-                    <div className="mt-6 pt-4 border-t border-accent/30">
-                      <div className="space-y-2">
-                        {index === 0 && (
-                          <>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Board the ship
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Settle into your cabin
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Begin your journey of rest
-                              </span>
-                            </div>
-                          </>
-                        )}
-                        {index === 1 && (
-                          <>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Morning reflections
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Worship sessions
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Shared experiences
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Leisure time
-                              </span>
-                            </div>
-                          </>
-                        )}
-                        {index === 2 && (
-                          <>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                A day of beauty, stillness, and wonder
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Turquoise waters and pristine beaches
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Time to breathe and reflect
-                              </span>
-                            </div>
-                          </>
-                        )}
-                        {index === 3 && (
-                          <>
-                            <h4 className="text-accent font-semibold font-['Cinzel'] text-sm mb-3">Today's Highlights</h4>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Thanksgiving celebration
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Gospel showcases
-                              </span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-1.5"></div>
-                              <span className="text-background/90 font-['Cormorant_Garamond'] text-xs leading-relaxed">
-                                Shared moments of praise
-                              </span>
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  <CardContent className="flex-grow p-6 bg-white border-l border-border">
-                    <div className="space-y-6">
-                      <div>
-                        <div className="space-y-4">
-                          {index === 0 && (
-                            <>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">6:00AM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">11:00AM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">slow morning (breakfast)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">11:00AM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">13:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, bowling alley, 4D cinema, shopping, gym & walking track</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">12:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">16:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Lunch</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">2:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Word session with guest Pastor (main theatre)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">2:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Couples Word session with guest Pastor (conference room)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">5:30PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">8:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Dinner</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">8:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">12:00AM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Worship session Guest Artist (main theatre)</p>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                          {index === 1 && (
-                            <>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">6:00AM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">11:00AM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">slow morning (breakfast)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">11:00AM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">13:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, bowling alley, 4D cinema, shopping, gym & walking track</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">12:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">16:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Lunch</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">2:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Word session with guest Pastor (main theatre)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">2:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Couples Word session with guest Pastor (conference room)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">5:30PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">8:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Dinner</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">8:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">12:00AM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Worship session Guest Artist (main theatre)</p>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                          {index === 2 && (
-                            <>
-                              <div className="mb-4 p-3 bg-accent/10 rounded-lg">
-                                <p className="text-foreground/80 font-['Cormorant_Garamond'] text-sm italic">
-                                  While docked in Pomene Bay, guests may choose an optional island excursion to explore the area's natural beauty. This excursion is arranged and paid directly through MSC Cruises and is not part of the Journey of Praise cruise programme or entertainment. Guests remaining onboard may continue enjoying the scheduled Journey of Praise worship and fellowship activities while the ship is docked.
-                                </p>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">6:00 AM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">11:00 AM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">slow morning (breakfast)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">11:00 AM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">13:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, bowling alley, 4D cinema, shopping, gym & walking track</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">12:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">16:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Lunch</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">2:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Word session with guest Pastor (main theatre)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">2:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Couples Word session with guest Pastor (conference room)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">5:30PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">8:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Dinner</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">8:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">12:00AM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Worship session Guest Artist (main theatre)</p>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                          {index === 3 && (
-                            <>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">6:00 AM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">11:00 AM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">slow morning (breakfast)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">11:00 AM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">13:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Explore sites on cruise: pools, waterpark, outdoor activities, spa, entertainment area, bowling alley, 4D cinema, shopping, gym & walking track</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">12:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">16:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Lunch</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">2:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Word session with guest Pastor (main theatre)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">2:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">3:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Couples Word session with guest Pastor (conference room)</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">5:30PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">8:00PM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Dinner</p>
-                                </div>
-                              </div>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">8:00PM -</p>
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">1:00AM</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Worship session Guest Artist (main theatre)</p>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                          {index === 4 && (
-                            <>
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-20">
-                                  <p className="font-semibold text-foreground font-['Cinzel'] text-sm">Highlights</p>
-                                </div>
-                                <div className="flex-1">
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Disembarkation</p>
-                                  <p className="text-foreground/70 font-['Cormorant_Garamond'] text-sm leading-relaxed">Journey home with a renewed spirit</p>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </div>
-              </Card>
-            ))}
-            <p className="text-sm text-center text-foreground/50 italic mt-4 font-['Cormorant_Garamond']">
-              *Itinerary subject to port availability.
-            </p>
+          <div className="overflow-x-auto rounded-3xl border border-border bg-white shadow-sm">
+            <table className="min-w-full text-left text-sm md:text-base">
+              <thead className="bg-primary/5 text-foreground/80">
+                <tr>
+                  <th className="px-6 py-4 font-['Cinzel'] text-base uppercase tracking-wide">Day</th>
+                  <th className="px-6 py-4 font-['Cinzel'] text-base uppercase tracking-wide">Date</th>
+                  <th className="px-6 py-4 font-['Cinzel'] text-base uppercase tracking-wide">Port</th>
+                  <th className="px-6 py-4 font-['Cinzel'] text-base uppercase tracking-wide">Arrival</th>
+                  <th className="px-6 py-4 font-['Cinzel'] text-base uppercase tracking-wide">Departure</th>
+                </tr>
+              </thead>
+              <tbody>
+                {itinerary.map((day, index) => (
+                  <tr key={index} className={index % 2 === 0 ? "bg-background" : "bg-white"}>
+                    <td className="px-6 py-5 align-top font-semibold text-foreground">{day.day}</td>
+                    <td className="px-6 py-5 align-top text-foreground/80">{day.date}</td>
+                    <td className="px-6 py-5 align-top text-foreground/80">{day.port}</td>
+                    <td className="px-6 py-5 align-top text-foreground/80">{day.arrival}</td>
+                    <td className="px-6 py-5 align-top text-foreground/80">{day.departure}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="px-6 py-4 text-sm text-foreground/60 italic">*Itinerary subject to port availability.</p>
           </div>
         </div>
 

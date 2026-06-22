@@ -99,13 +99,24 @@ export default function BookNowPage() {
 
       if (plan) {
         setSelectedPlan(plan)
-        localStorage.setItem('selectedPlan', JSON.stringify(plan))
+        try {
+          localStorage.setItem('selectedPlan', JSON.stringify(plan))
+        } catch (error) {
+          console.warn('Unable to save selected plan to localStorage', error)
+        }
         return
       }
     }
 
     if (savedPlan) {
-      setSelectedPlan(JSON.parse(savedPlan))
+      try {
+        const parsed = JSON.parse(savedPlan)
+        const plan = cabinPlans.find(p => p.name === parsed?.name)
+        setSelectedPlan(plan ?? parsed)
+      } catch (error) {
+        console.error('Error parsing saved selected plan:', error)
+        localStorage.removeItem('selectedPlan')
+      }
     }
   }, [])
 
@@ -127,7 +138,11 @@ export default function BookNowPage() {
                 onPlanSelect={(plan) => {
                   setSelectedPlan(plan)
                   // Save to localStorage immediately when plan is selected
-                  localStorage.setItem('selectedPlan', JSON.stringify(plan))
+                  try {
+                    localStorage.setItem('selectedPlan', JSON.stringify(plan))
+                  } catch (error) {
+                    console.warn('Unable to save selected plan to localStorage', error)
+                  }
                 }}
                 onContinue={() => setShowForm(true)}
                 onGuestsChange={setGuests}

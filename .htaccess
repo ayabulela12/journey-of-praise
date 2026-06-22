@@ -46,10 +46,15 @@ RewriteRule ^(.*)$ index.html [L]
     ExpiresByType application/xhtml+xml "access plus 0 seconds"
 </IfModule>
 
-# Security headers
+# Security headers and cache-busting for HTML
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options nosniff
     Header always set X-Frame-Options DENY
     Header always set X-XSS-Protection "1; mode=block"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Prevent server caching of HTML files
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 21 Oct 1985 07:15:00 GMT"
 </IfModule>

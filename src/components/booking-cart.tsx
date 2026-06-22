@@ -81,7 +81,11 @@ export function BookingCart({ selectedPlan, onPlanSelect, onContinue, onGuestsCh
   const updateGuests = (newGuests: any) => {
     setGuests(newGuests)
     onGuestsChange(newGuests)
-    localStorage.setItem('guests', JSON.stringify(newGuests))
+    try {
+      localStorage.setItem('guests', JSON.stringify(newGuests))
+    } catch (error) {
+      console.warn('Unable to save guest details to localStorage', error)
+    }
   }
 
   return (

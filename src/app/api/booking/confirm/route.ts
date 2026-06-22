@@ -88,7 +88,7 @@ function customerEmailHtml({ customerDetails, selectedPlan, guests, reference, t
         </tr>
         <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Dates</strong></td>
-          <td>8–12 March 2027</td>
+          <td>8–11 March 2027</td>
         </tr>
         <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Reference</strong></td>
@@ -107,16 +107,28 @@ function customerEmailHtml({ customerDetails, selectedPlan, guests, reference, t
           <td>Standard Bank</td>
         </tr>
         <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 8px 0;"><strong>Account Type</strong></td>
+          <td>GOLD BUSINESS ACCOUNT</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Account Name</strong></td>
           <td>Journey of Praise Cruise</td>
         </tr>
         <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Account Number</strong></td>
-          <td>1234567890</td>
+          <td>63197397863</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 8px 0;"><strong>Branch Name</strong></td>
+          <td>ZEVENWACHT MALL</td>
         </tr>
         <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Branch Code</strong></td>
-          <td>051001</td>
+          <td>260214</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 8px 0;"><strong>SWIFT Code</strong></td>
+          <td>FIRNZAJJ</td>
         </tr>
         <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Reference</strong></td>

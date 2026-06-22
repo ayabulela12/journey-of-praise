@@ -22,7 +22,7 @@ npm run build:cpanel
 
 This will:
 - Build the Next.js application
-- Export static files to the `out` directory
+- Export static files to the `out` directory using `output: 'export'` in `next.config.ts`
 - Optimize for static hosting
 
 ## Deployment Steps

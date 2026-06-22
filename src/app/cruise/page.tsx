@@ -7,8 +7,7 @@ export default function CruisePage() {
       <PageHeader
         badge="Voyage Details"
         title="Cruise Information"
-          subtitle="A faith-filled 4-night journey to Pomene Island, Mozambique aboard the magnificent MSC Armonia."
-
+        subtitle="A faith-filled 3-night journey from Durban to Cape Town aboard the magnificent MSC Armonia."
       />
       <CruiseInfoSection />
     </main>

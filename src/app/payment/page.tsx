@@ -155,7 +155,7 @@ export default function PaymentPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
-                        <span>8-12 March 2027</span>
+                        <span>8-11 March 2027</span>
                       </div>
                       {selectedPlan.badge && (
                         <Badge variant="secondary" className="mt-2">

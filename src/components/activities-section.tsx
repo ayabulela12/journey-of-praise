@@ -12,7 +12,7 @@ export function ActivitiesSection() {
         description:
           "Purpose-led praise & worship sessions at sea with leading gospel artists.",
         image:
-          "/images/JOP_Praise%20Worship.webp",
+          "/images/JOP_PraiseWorship.webp",
       },
       {
         icon: Heart,

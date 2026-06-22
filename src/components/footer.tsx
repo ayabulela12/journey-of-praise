@@ -97,7 +97,7 @@ export function Footer() {
               <li className="flex items-start gap-3 text-slate-300">
                 <Phone className="w-5 h-5 mt-1 flex-shrink-0 text-accent" />
                 <a href="tel:+1234567890" className="hover:text-accent transition-colors">
-                  +1 (234) 567-890
+                 +27 72 862 9895
                 </a>
               </li>
               <li className="flex items-start gap-3 text-slate-300">
@@ -119,13 +119,13 @@ export function Footer() {
             <h3 className="font-['Cormorant_Garamond'] text-2xl font-bold mb-6">Cruise Details</h3>
             <ul className="space-y-3 text-slate-300">
               <li>
-                <strong className="text-white">Dates:</strong> March 8-12, 2027
+                <strong className="text-white">Dates:</strong> March 8-11, 2027
               </li>
               <li>
                 <strong className="text-white">Ship:</strong> MSC Armonia
               </li>
               <li>
-                <strong className="text-white">Duration:</strong> 4 Nights
+                <strong className="text-white">Duration:</strong> 3 Nights
               </li>
               <li>
                 <strong className="text-white">Ports:</strong> South Africa

@@ -3,7 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
-  distDir: 'out',
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -22,9 +21,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  turbopack: {
-    root: __dirname,
-  },
+  // Remove turbopack options for production builds — use Next's default bundler.
 } as NextConfig;
 
 export default nextConfig;

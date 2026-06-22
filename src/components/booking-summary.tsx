@@ -116,7 +116,7 @@ export function BookingSummary({ selectedPlan, guests }: BookingSummaryProps) {
           <div className="space-y-2 text-sm">
             <div>
               <span className="text-muted-foreground">Dates:</span>
-              <div className="font-medium">8-12 March 2027</div>
+              <div className="font-medium">8-11 March 2027</div>
             </div>
             <div>
               <span className="text-muted-foreground">Ship:</span>
@@ -124,7 +124,7 @@ export function BookingSummary({ selectedPlan, guests }: BookingSummaryProps) {
             </div>
             <div>
               <span className="text-muted-foreground">Route:</span>
-              <div className="font-medium">Durban → Pomene Island → Durban</div>
+              <div className="font-medium">Durban → Cape Town</div>
             </div>
           </div>
         </div>

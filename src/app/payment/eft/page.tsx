@@ -67,12 +67,13 @@ export default function EFTPaymentPage() {
     }
   }, [customerDetails, reference])
 
+  // Keep only the essential banking details for the payer
   const bankDetails = {
     bankName: "Standard Bank",
     accountName: "Journey of Praise Cruise",
-    accountNumber: "1234567890",
-    branchCode: "051001",
-    reference: reference || `JOP-${customerDetails?.fullName?.replace(/\s/g, '').toUpperCase().substring(0, 10)}-${Date.now().toString().slice(-6)}`
+    accountNumber: "63197397863",
+    branchCode: "260214",
+    reference: reference || `JOP-${customerDetails?.fullName?.replace(/\s/g, '').toUpperCase().substring(0, 10)}-${Date.now().toString().slice(-6)}`,
   }
 
 
@@ -214,7 +215,7 @@ export default function EFTPaymentPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
-                        <span>8-12 March 2027</span>
+                        <span>8-11 March 2027</span>
                       </div>
                     </div>
                   </div>
@@ -251,6 +252,7 @@ export default function EFTPaymentPage() {
                     </div>
                   </div>
                   
+
                   <div className="flex items-center justify-between">
                     <span className="font-medium font-['Cinzel']">Account Name:</span>
                     <div className="flex items-center gap-2">
@@ -288,7 +290,7 @@ export default function EFTPaymentPage() {
                       </Button>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <span className="font-medium font-['Cinzel']">Branch Code:</span>
                     <div className="flex items-center gap-2">
@@ -360,18 +362,11 @@ export default function EFTPaymentPage() {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <div className="flex gap-4">
-                    <Button 
-                      variant="outline"
-                      onClick={() => router.push('/payment')}
-                      className="flex-1 font-['Cinzel']"
-                    >
-                      Change Payment Method
-                    </Button>
-                    <Button 
+                  <div>
+                    <Button
                       onClick={handleConfirmBooking}
                       disabled={isEmailLoading}
-                      className="flex-1 font-['Cinzel']"
+                      className="w-full font-['Cinzel']"
                     >
                       {isEmailLoading ? 'Sending Email...' : 'Send Details to Email'}
                     </Button>

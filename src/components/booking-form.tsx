@@ -42,12 +42,19 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Save form data to localStorage
-    localStorage.setItem('customerDetails', JSON.stringify(formData))
+    try {
+      localStorage.setItem('customerDetails', JSON.stringify(formData))
+    } catch (error) {
+      console.warn('Unable to save customer details to localStorage', error)
+    }
     
     // Ensure selectedPlan is also saved to localStorage (in case it wasn't saved earlier)
     if (selectedPlan) {
-      localStorage.setItem('selectedPlan', JSON.stringify(selectedPlan))
+      try {
+        localStorage.setItem('selectedPlan', JSON.stringify(selectedPlan))
+      } catch (error) {
+        console.warn('Unable to save selected plan to localStorage', error)
+      }
     }
     
     // Update guests data and save adults only
@@ -67,7 +74,11 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
         adults: formData.adults,
       }
     }
-    localStorage.setItem('guests', JSON.stringify(guests))
+    try {
+      localStorage.setItem('guests', JSON.stringify(guests))
+    } catch (error) {
+      console.warn('Unable to save guest count to localStorage', error)
+    }
     
     // Redirect directly to the EFT payment page since this is the only payment option
     router.push('/payment/eft')
@@ -124,7 +135,7 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                <span>8-12 March 2027</span>
+                <span>8-11 March 2027</span>
               </div>
             </div>
             <div className="mt-2 text-xl font-['Cinzel'] font-bold">
