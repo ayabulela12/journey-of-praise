@@ -101,6 +101,17 @@ function customerEmailHtml(array $customerDetails, array $selectedPlan, array $g
     HTML;
 }
 
+function formatCustomerMessage(array $customerDetails): string
+{
+    $message = trim($customerDetails['message'] ?? '');
+
+    if ($message === '') {
+        return '<em style="color: #888;">None</em>';
+    }
+
+    return nl2br(escape($message));
+}
+
 function adminEmailHtml(array $customerDetails, array $selectedPlan, array $guests, string $reference, $totalAmount): string
 {
     $fullName = escape($customerDetails['fullName']);
@@ -110,6 +121,7 @@ function adminEmailHtml(array $customerDetails, array $selectedPlan, array $gues
     $adults = (int) ($guests['adults'] ?? 0);
     $referenceSafe = escape($reference);
     $amountSafe = escape((string) $totalAmount);
+    $messageHtml = formatCustomerMessage($customerDetails);
 
     return <<<HTML
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; color: #333;">
@@ -139,9 +151,13 @@ function adminEmailHtml(array $customerDetails, array $selectedPlan, array $gues
           <td style="padding: 8px 0;"><strong>Reference</strong></td>
           <td><strong>{$referenceSafe}</strong></td>
         </tr>
-        <tr>
+        <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Amount</strong></td>
           <td><strong>R{$amountSafe}</strong></td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 0; vertical-align: top;"><strong>Special Requirements / Message</strong></td>
+          <td style="padding: 8px 0;">{$messageHtml}</td>
         </tr>
       </table>
       <p style="margin-top: 24px; color: #888; font-size: 13px;">

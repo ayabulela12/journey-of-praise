@@ -159,6 +159,11 @@ function customerEmailHtml({ customerDetails, selectedPlan, guests, reference, t
 }
 
 function adminEmailHtml({ customerDetails, selectedPlan, guests, reference, totalAmount }: any) {
+  const message = (customerDetails.message ?? '').trim()
+  const messageHtml = message
+    ? message.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br/>')
+    : '<em style="color: #888;">None</em>'
+
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; color: #333;">
       
@@ -189,9 +194,13 @@ function adminEmailHtml({ customerDetails, selectedPlan, guests, reference, tota
           <td style="padding: 8px 0;"><strong>Reference</strong></td>
           <td><strong>${reference}</strong></td>
         </tr>
-        <tr>
+        <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Amount</strong></td>
           <td><strong>R${totalAmount}</strong></td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 0; vertical-align: top;"><strong>Special Requirements / Message</strong></td>
+          <td style="padding: 8px 0;">${messageHtml}</td>
         </tr>
       </table>
 

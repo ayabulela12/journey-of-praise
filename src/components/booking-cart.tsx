@@ -156,7 +156,7 @@ export function BookingCart({ selectedPlan, onPlanSelect, onContinue, onGuestsCh
                       {cabin.badge}
                     </Badge>
                   )}
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-4">
+                  <div className="flex items-center justify-center w-16 h-16 bg-linear-to-br from-primary to-secondary rounded-full mx-auto mb-4">
                     <Icon className="w-8 h-8 text-accent" />
                   </div>
                   <CardTitle className="text-xl font-['Cinzel'] text-center text-foreground leading-tight">

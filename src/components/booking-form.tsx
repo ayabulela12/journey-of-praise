@@ -7,6 +7,9 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Users, Calendar, Ship } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { GuestPicker, clampGuestCount } from "@/components/guest-picker"
+import { sanitizePhoneInput, phoneValidationMessage } from "@/lib/phone"
+import { normalizeEmailInput, emailValidationMessage } from "@/lib/email"
+import { nameValidationMessage } from "@/lib/name"
 
 interface BookingFormProps {
   selectedPlan: any
@@ -21,6 +24,9 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
     adults: 2,
     message: ""
   })
+  const [phoneError, setPhoneError] = useState<string | null>(null)
+  const [emailError, setEmailError] = useState<string | null>(null)
+  const [nameError, setNameError] = useState<string | null>(null)
   const router = useRouter()
 
   // Load guests data from localStorage on mount
@@ -42,9 +48,29 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    const trimmedName = formData.fullName.trim()
+    const normalizedEmail = normalizeEmailInput(formData.email)
+    const nameMessage = nameValidationMessage(trimmedName)
+    const emailMessage = emailValidationMessage(normalizedEmail)
+    const phoneMessage = phoneValidationMessage(formData.phone)
+
+    setNameError(nameMessage)
+    setEmailError(emailMessage)
+    setPhoneError(phoneMessage)
+
+    if (nameMessage || emailMessage || phoneMessage) {
+      return
+    }
+
+    const validatedDetails = {
+      ...formData,
+      fullName: trimmedName,
+      email: normalizedEmail,
+    }
     
     try {
-      localStorage.setItem('customerDetails', JSON.stringify(formData))
+      localStorage.setItem('customerDetails', JSON.stringify(validatedDetails))
     } catch (error) {
       console.warn('Unable to save customer details to localStorage', error)
     }
@@ -146,41 +172,111 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
         )}
         
         <CardContent className="p-8">
-          <form className="grid gap-6" onSubmit={handleSubmit}>
+          <form className="grid gap-6" onSubmit={handleSubmit} noValidate>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium font-['Cinzel']">Full Name *</label>
-                <input 
-                  className="w-full p-3 border rounded-md" 
-                  placeholder="Enter your full name" 
+                <label className="text-sm font-medium font-['Cinzel']" htmlFor="fullName">
+                  Full Name *
+                </label>
+                <input
+                  id="fullName"
+                  className="w-full p-3 border rounded-md"
+                  placeholder="Enter your full name"
                   required
                   value={formData.fullName}
-                  onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
+                  onChange={(e) => {
+                    const fullName = e.target.value
+                    setFormData(prev => ({ ...prev, fullName }))
+                    if (nameError) {
+                      setNameError(nameValidationMessage(fullName))
+                    }
+                  }}
+                  onBlur={() => setNameError(nameValidationMessage(formData.fullName))}
+                  aria-invalid={nameError ? true : undefined}
+                  aria-describedby={nameError ? "name-error" : undefined}
                 />
+                {nameError ? (
+                  <p id="name-error" className="text-sm text-destructive">
+                    {nameError}
+                  </p>
+                ) : null}
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium font-['Cinzel']">Email Address *</label>
-                <input 
-                  className="w-full p-3 border rounded-md" 
-                  type="email" 
-                  placeholder="Enter your email" 
+                <label className="text-sm font-medium font-['Cinzel']" htmlFor="email">
+                  Email Address *
+                </label>
+                <input
+                  id="email"
+                  className="w-full p-3 border rounded-md"
+                  type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  placeholder="name@example.com"
                   required
                   value={formData.email}
-                  onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                  onChange={(e) => {
+                    const email = e.target.value
+                    setFormData(prev => ({ ...prev, email }))
+                    if (emailError) {
+                      setEmailError(emailValidationMessage(email))
+                    }
+                  }}
+                  onBlur={() => setEmailError(emailValidationMessage(formData.email))}
+                  aria-invalid={emailError ? true : undefined}
+                  aria-describedby={emailError ? "email-error" : undefined}
                 />
+                {emailError ? (
+                  <p id="email-error" className="text-sm text-destructive">
+                    {emailError}
+                  </p>
+                ) : null}
               </div>
             </div>
             
             <div className="space-y-2">
-              <label className="text-sm font-medium font-['Cinzel']">Phone Number *</label>
-              <input 
-                className="w-full p-3 border rounded-md" 
-                type="tel" 
-                placeholder="Enter your phone number" 
+              <label className="text-sm font-medium font-['Cinzel']" htmlFor="phone">
+                Phone Number *
+              </label>
+              <input
+                id="phone"
+                className="w-full p-3 border rounded-md font-mono tracking-wide"
+                type="tel"
+                inputMode="numeric"
+                autoComplete="tel"
+                placeholder="0821234567"
                 required
+                minLength={10}
+                maxLength={10}
+                pattern="0[0-9]{9}"
                 value={formData.phone}
-                onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                onKeyDown={(e) => {
+                  if (e.key.length === 1 && !/\d/.test(e.key)) {
+                    e.preventDefault()
+                  }
+                }}
+                onChange={(e) => {
+                  const phone = sanitizePhoneInput(e.target.value)
+                  setFormData(prev => ({ ...prev, phone }))
+                  if (phoneError && phone) {
+                    setPhoneError(phoneValidationMessage(phone))
+                  }
+                }}
+                onBlur={() => {
+                  if (formData.phone) {
+                    setPhoneError(phoneValidationMessage(formData.phone))
+                  }
+                }}
+                aria-invalid={phoneError ? true : undefined}
+                aria-describedby={phoneError ? "phone-error" : "phone-hint"}
               />
+              <p id="phone-hint" className="text-xs text-muted-foreground font-['Cormorant_Garamond']">
+                10 digits only, starting with 0 (e.g. 0821234567)
+              </p>
+              {phoneError ? (
+                <p id="phone-error" className="text-sm text-destructive">
+                  {phoneError}
+                </p>
+              ) : null}
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">

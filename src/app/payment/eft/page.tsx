@@ -230,7 +230,7 @@ export default function EFTPaymentPage() {
 
             {/* Bank Details */}
             <Card className="border-2 border-primary">
-              <CardHeader className="bg-gradient-to-r from-primary to-secondary text-primary-foreground">
+              <CardHeader className="bg-linear-to-r from-primary to-secondary text-primary-foreground">
                 <div className="flex items-center gap-3">
                   <Building2 className="w-6 h-6" />
                   <CardTitle className="font-['Cinzel'] text-xl">Banking Details</CardTitle>
@@ -280,7 +280,7 @@ export default function EFTPaymentPage() {
                   <div className="flex items-center justify-between">
                     <span className="font-medium font-['Cinzel']">Account Number:</span>
                     <div className="flex items-center gap-2">
-                      <span className="font-['Cormorant_Garamond'] font-mono">{bankDetails.accountNumber}</span>
+                      <span className="font-mono">{bankDetails.accountNumber}</span>
                       <Button
                         variant="ghost"
                         size="sm"
@@ -299,7 +299,7 @@ export default function EFTPaymentPage() {
                   <div className="flex items-center justify-between">
                     <span className="font-medium font-['Cinzel']">Branch Code:</span>
                     <div className="flex items-center gap-2">
-                      <span className="font-['Cormorant_Garamond'] font-mono">{bankDetails.branchCode}</span>
+                      <span className="font-mono">{bankDetails.branchCode}</span>
                       <Button
                         variant="ghost"
                         size="sm"
@@ -318,7 +318,7 @@ export default function EFTPaymentPage() {
                   <div className="flex items-center justify-between">
                     <span className="font-medium font-['Cinzel']">Reference:</span>
                     <div className="flex items-center gap-2">
-                      <span className="font-['Cormorant_Garamond'] font-mono text-sm">{bankDetails.reference}</span>
+                      <span className="font-mono text-sm">{bankDetails.reference}</span>
                       <Button
                         variant="ghost"
                         size="sm"
