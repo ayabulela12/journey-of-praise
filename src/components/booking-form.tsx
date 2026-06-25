@@ -142,7 +142,7 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
       <Card className="border-2 border-border shadow-2xl overflow-hidden">
         {/* Selected Plan Header */}
         {selectedPlan && (
-          <div className="bg-gradient-to-r from-primary to-secondary p-6 text-primary-foreground">
+          <div className="bg-linear-to-r from-primary to-secondary p-6 text-primary-foreground">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-2xl font-['Cinzel'] font-bold">Guest Information</h3>
               {selectedPlan.badge && (
@@ -303,7 +303,8 @@ export function BookingForm({ selectedPlan, onBack }: BookingFormProps) {
               <h4 className="font-['Cinzel'] text-accent mb-2">Important Information</h4>
               <ul className="text-sm text-foreground/80 space-y-1 font-['Cormorant_Garamond']">
                 <li>• All prices include cruise fare, insurance, and port taxes</li>
-                <li>• Payment details are being finalized with MSC Cruises</li>
+                <li>• A minimum deposit of R3,000 is required to secure your cabin</li>
+                <li>• 50% off drinks packages available as an optional add-on</li>
                 <li>• You will receive a confirmation email with next steps</li>
                 <li>• Journey of Praise programmes are included in all cabins</li>
               </ul>

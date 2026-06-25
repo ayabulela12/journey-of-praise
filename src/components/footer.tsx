@@ -103,7 +103,7 @@ export function Footer() {
               <li className="flex items-start gap-3 text-slate-300">
                 <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-accent" />
                 <span>
-                  Durban,<br />
+                  Cape Town,<br />
                   South Africa
                 </span>
               </li>

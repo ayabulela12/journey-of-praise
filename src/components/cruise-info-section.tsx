@@ -188,11 +188,19 @@ export function CruiseInfoSection() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0 mt-2.5" />
-                    <span>Worded worship sessions & teen entertainment</span>
+                    <span>Worded worship & couple entertainment</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0 mt-2.5" />
                     <span>Selected sporting activities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0 mt-2.5" />
+                    <span>Port transfers</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0 mt-2.5" />
+                    <span>50% off drinks packages (optional add-on)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0 mt-2.5" />
@@ -229,11 +237,7 @@ export function CruiseInfoSection() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-2.5" />
-                    <span>Drinks packages</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-2.5" />
-                    <span>Shore excursions</span>
+                    <span>Drinks packages (50% off available)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-2.5" />
@@ -241,7 +245,7 @@ export function CruiseInfoSection() {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0 mt-2.5" />
-                    <span>Port transfers</span>
+                    <span>Personal shopping</span>
                   </li>
                 </ul>
               </CardContent>

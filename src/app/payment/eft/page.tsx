@@ -69,7 +69,7 @@ export default function EFTPaymentPage() {
 
   // Keep only the essential banking details for the payer
   const bankDetails = {
-    bankName: "Standard Bank",
+    bankName: "FNB",
     accountName: "Journey of Praise Cruise",
     accountNumber: "63197397863",
     branchCode: "260214",

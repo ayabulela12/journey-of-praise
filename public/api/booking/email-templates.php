@@ -49,7 +49,7 @@ function customerEmailHtml(array $customerDetails, array $selectedPlan, array $g
       <table style="width:100%; border-collapse: collapse; margin-bottom: 24px;">
         <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Bank</strong></td>
-          <td>Standard Bank</td>
+          <td>FNB</td>
         </tr>
         <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0;"><strong>Account Type</strong></td>
@@ -94,7 +94,7 @@ function customerEmailHtml(array $customerDetails, array $selectedPlan, array $g
         </ul>
       </div>
       <p style="color: #888; font-size: 13px;">
-        Journey of Praise Cruise | Durban, South Africa<br/>
+        Journey of Praise Cruise | Cape Town, South Africa<br/>
         info@journeyofpraise.co.za
       </p>
     </div>
@@ -161,7 +161,7 @@ function adminEmailHtml(array $customerDetails, array $selectedPlan, array $gues
         </tr>
       </table>
       <p style="margin-top: 24px; color: #888; font-size: 13px;">
-        Check your Standard Bank account for incoming payment with this reference.
+        Check your FNB account for incoming payment with this reference.
       </p>
     </div>
     HTML;

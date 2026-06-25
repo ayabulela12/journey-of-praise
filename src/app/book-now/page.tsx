@@ -5,83 +5,10 @@ import { PageHeader } from "@/components/page-header"
 import { BookingCart } from "@/components/booking-cart"
 import { BookingForm } from "@/components/booking-form"
 import { BookingSummary } from "@/components/booking-summary"
-
-interface CabinPlan {
-  name: string
-  price: string
-  pricePerNight: string
-  description: string
-  icon: any
-  features: string[]
-  capacity: string
-  size: string
-  badge: string | null
-}
-
-const cabinPlans: CabinPlan[] = [
-  {
-    name: "Interior cabin",
-    price: "R17 802",
-    pricePerNight: "Per cabin, 2 adults",
-    description: "Comfortable retreat space for couples",
-    icon: "Bed",
-    features: [
-      "Twin beds convertible to queen",
-      "Private bathroom",
-      "Climate control",
-      "Onboard dining & entertainment",
-      "Insurance, port charges & Journey of Praise service fee",
-      "Access to worship sessions and couple-focused moments",
-      "Shipboard pools, fitness and relaxation spaces"
-    ],
-    capacity: "2 adults",
-    size: "approx. 13-20 sq m",
-    badge: null
-  },
-  {
-    name: "Ocean View",
-    price: "R18 400",
-    pricePerNight: "Per cabin, 2 adults",
-    description: "Wake up to ocean views on your couples retreat",
-    icon: "Ship",
-    features: [
-      "All Interior cabin amenities",
-      "Scenic ocean-view window",
-      "Sitting area",
-      "Mini refrigerator",
-      "Insurance, port charges & Journey of Praise service fee",
-      "Complimentary dining and daily specialty options",
-      "Curated couple experiences and wellness access"
-    ],
-    capacity: "2 adults",
-    size: "approx. 12-20 sq m",
-    badge: "Popular"
-  },
-  {
-    name: "Balcony cabin",
-    price: "R24 600",
-    pricePerNight: "Per cabin, 2 adults",
-    description: "Private balcony for sunset moments together",
-    icon: "Coffee",
-    features: [
-      "Private balcony",
-      "All Ocean View amenities",
-      "VIP couple experiences",
-      "Insurance, port charges & Journey of Praise service fee",
-      "Complimentary dining and daily specialty options",
-      "Access to wellness, pools and relaxing shore experiences"
-    ],
-    capacity: "2 adults",
-    size: "approx. 13-17 sq m + balcony",
-    badge: "Best for couples"
-  }
-]
-
-const makePlanSlug = (name: string) =>
-  name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+import { cabinTypes, makePlanSlug, resolveCabinPlan, serializeCabinPlan, type CabinType } from "@/lib/cabin-types"
 
 export default function BookNowPage() {
-  const [selectedPlan, setSelectedPlan] = useState<CabinPlan | null>(null)
+  const [selectedPlan, setSelectedPlan] = useState<CabinType | null>(null)
   const [showForm, setShowForm] = useState(false)
   const [guests, setGuests] = useState({
     adults: 2,
@@ -93,14 +20,14 @@ export default function BookNowPage() {
     const savedPlan = localStorage.getItem('selectedPlan')
 
     if (planParam) {
-      const plan = cabinPlans.find(
+      const plan = cabinTypes.find(
         p => makePlanSlug(p.name) === planParam.toLowerCase()
       )
 
       if (plan) {
         setSelectedPlan(plan)
         try {
-          localStorage.setItem('selectedPlan', JSON.stringify(plan))
+          localStorage.setItem('selectedPlan', JSON.stringify(serializeCabinPlan(plan)))
         } catch (error) {
           console.warn('Unable to save selected plan to localStorage', error)
         }
@@ -111,8 +38,7 @@ export default function BookNowPage() {
     if (savedPlan) {
       try {
         const parsed = JSON.parse(savedPlan)
-        const plan = cabinPlans.find(p => p.name === parsed?.name)
-        setSelectedPlan(plan ?? parsed)
+        setSelectedPlan(resolveCabinPlan(parsed))
       } catch (error) {
         console.error('Error parsing saved selected plan:', error)
         localStorage.removeItem('selectedPlan')
@@ -127,6 +53,17 @@ export default function BookNowPage() {
         title="Reserve Your Cabin"
         subtitle="Complete your Journey of Praise cruise booking in just a few simple steps."
       />
+
+      <div className="container mx-auto px-4 pb-4 -mt-6">
+        <div className="max-w-4xl mx-auto rounded-xl border border-accent/30 bg-accent/10 p-4 text-center">
+          <p className="font-['Cinzel'] text-accent font-semibold">
+            Minimum deposit of R3,000 required to secure your cabin.
+          </p>
+          <p className="mt-1 text-sm text-foreground/80 font-['Cormorant_Garamond']">
+            50% off drinks packages available as an optional add-on.
+          </p>
+        </div>
+      </div>
       
       <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-3 gap-8">
@@ -139,7 +76,7 @@ export default function BookNowPage() {
                   setSelectedPlan(plan)
                   // Save to localStorage immediately when plan is selected
                   try {
-                    localStorage.setItem('selectedPlan', JSON.stringify(plan))
+                    localStorage.setItem('selectedPlan', JSON.stringify(serializeCabinPlan(plan)))
                   } catch (error) {
                     console.warn('Unable to save selected plan to localStorage', error)
                   }

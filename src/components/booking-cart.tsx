@@ -4,67 +4,9 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Check, Bed, Users, Wifi, Coffee, Tv, Ship, ArrowRight } from "lucide-react"
+import { Check, ArrowRight, Users } from "lucide-react"
 import { GuestPicker, clampGuestCount } from "@/components/guest-picker"
-
-const cabinTypes = [
-  {
-    name: "Interior cabin",
-    price: "R17 802",
-    pricePerNight: "Per cabin, 2 adults",
-    description: "Comfortable retreat space for couples",
-    icon: Bed,
-    features: [
-      "Twin beds convertible to queen",
-      "Private bathroom",
-      "Climate control",
-      "Onboard dining & entertainment",
-      "Insurance, port charges & Journey of Praise service fee",
-      "Access to worship sessions and couple-focused moments",
-      "Shipboard pools, fitness and relaxation spaces"
-    ],
-    capacity: "2 adults",
-    size: "approx. 13-20 sq m",
-    badge: null
-  },
-  {
-    name: "Ocean View",
-    price: "R18 400",
-    pricePerNight: "Per cabin, 2 adults",
-    description: "Wake up to ocean views on your couples retreat",
-    icon: Ship,
-    features: [
-      "All Interior cabin amenities",
-      "Scenic ocean-view window",
-      "Sitting area",
-      "Mini refrigerator",
-      "Insurance, port charges & Journey of Praise service fee",
-      "Complimentary dining and daily specialty options",
-      "Curated couple experiences and wellness access"
-    ],
-    capacity: "2 adults",
-    size: "approx. 12-20 sq m",
-    badge: "Popular"
-  },
-  {
-    name: "Balcony cabin",
-    price: "R24 600",
-    pricePerNight: "Per cabin, 2 adults",
-    description: "Private balcony for sunset moments together",
-    icon: Coffee,
-    features: [
-      "Private balcony",
-      "All Ocean View amenities",
-      "VIP couple experiences",
-      "Insurance, port charges & Journey of Praise service fee",
-      "Complimentary dining and daily specialty options",
-      "Access to wellness, pools and relaxing shore experiences"
-    ],
-    capacity: "2 adults",
-    size: "approx. 13-17 sq m + balcony",
-    badge: "Best for couples"
-  }
-]
+import { cabinTypes } from "@/lib/cabin-types"
 
 interface BookingCartProps {
   selectedPlan: any
